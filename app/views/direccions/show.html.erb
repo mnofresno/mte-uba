@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Calle:</strong>
+  <%= @direccion.calle %>
+</p>
+
+<p>
+  <strong>Altura:</strong>
+  <%= @direccion.altura %>
+</p>
+
+<p>
+  <strong>Direccionable:</strong>
+  <%= @direccion.direccionable_id %>
+</p>
+
+<p>
+  <strong>Direccionable type:</strong>
+  <%= @direccion.direccionable_type %>
+</p>
+
+<%= link_to 'Edit', edit_direccion_path(@direccion) %> |
+<%= link_to 'Back', direccions_path %>

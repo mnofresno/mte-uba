@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  calle: MyString
+  altura: 1
+  direccionable_id: 1
+  direccionable_type: MyString
+
+two:
+  calle: MyString
+  altura: 1
+  direccionable_id: 1
+  direccionable_type: MyString
