@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :proveedors
   resources :direccions
   resources :tallers
   devise_for :usuarios
