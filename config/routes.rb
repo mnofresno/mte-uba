@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :chofers
   resources :proveedors
   resources :direccions
   resources :tallers
