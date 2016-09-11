@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Unidads</h1>
+<h1>Unidades</h1>
 
 <table>
   <thead>
@@ -20,9 +20,9 @@
         <td><%= unidad.marca %></td>
         <td><%= unidad.año %></td>
         <td><%= unidad.fueraDeServicio %></td>
-        <td><%= link_to 'Show', unidad %></td>
-        <td><%= link_to 'Edit', edit_unidad_path(unidad) %></td>
-        <td><%= link_to 'Destroy', unidad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', unidad %></td>
+        <td><%= link_to 'Editar', edit_unidad_path(unidad) %></td>
+        <td><%= link_to 'Borrar', unidad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
