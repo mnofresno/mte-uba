@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Unidads</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Patente</th>
+      <th>Marca</th>
+      <th>Año</th>
+      <th>Fueradeservicio</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @unidads.each do |unidad| %>
+      <tr>
+        <td><%= unidad.patente %></td>
+        <td><%= unidad.marca %></td>
+        <td><%= unidad.año %></td>
+        <td><%= unidad.fueraDeServicio %></td>
+        <td><%= link_to 'Show', unidad %></td>
+        <td><%= link_to 'Edit', edit_unidad_path(unidad) %></td>
+        <td><%= link_to 'Destroy', unidad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Unidad', new_unidad_path %>

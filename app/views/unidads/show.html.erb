@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Patente:</strong>
+  <%= @unidad.patente %>
+</p>
+
+<p>
+  <strong>Marca:</strong>
+  <%= @unidad.marca %>
+</p>
+
+<p>
+  <strong>Año:</strong>
+  <%= @unidad.año %>
+</p>
+
+<p>
+  <strong>Fueradeservicio:</strong>
+  <%= @unidad.fueraDeServicio %>
+</p>
+
+<%= link_to 'Edit', edit_unidad_path(@unidad) %> |
+<%= link_to 'Back', unidads_path %>
