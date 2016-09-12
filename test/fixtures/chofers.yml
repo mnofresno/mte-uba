@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  apellido: MyString
+  radio: MyString
+  taller_id: 
+
+two:
+  nombre: MyString
+  apellido: MyString
+  radio: MyString
+  taller_id: 

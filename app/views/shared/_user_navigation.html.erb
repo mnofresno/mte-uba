@@ -1,0 +1,14 @@
+<div id="user-navigation">
+  <ul class="wat-cf">
+  <li>
+  <%= link_to '<i class="fa fa-cog fa-lg"></i>'.html_safe, setting_path, alt: t('scaffold.setting', :item => '')  %>
+  </li>
+  <li>
+  <%= link_to '<i class="fa fa-male fa-lg"></i>'.html_safe, edit_usuario_registration_path, alt: t('scaffold.profile', :item => '') %>
+  </li>
+  <li>
+  <%= link_to '<i class="fa fa-power-off fa-lg"></i>'.html_safe, destroy_usuario_session_path, alt: t('scaffold.logout', :item => '') %>
+  </li>
+  </ul>
+</div>
+B

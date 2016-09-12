@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mteuba2</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">MTE-UBA</a>
+    </div>
+  </div>
+</nav>
+
+  <div class="container">
+        <div class="block">
+        <h2>
+          <%= yield(:title) if content_for?(:title) %>
+        </h2>
+        <div class="content login">
+          <div class="flash">
+            <% flash.each do |type, message| %>
+              <div class="<%= type.to_s %> message">
+                <p>
+                  <%= message %>
+                </p>
+              </div>
+            <% end %>
+          </div>
+          <%= yield %>
+        </div>
+      </div>
+</div>
+
+</body>
+</html>
