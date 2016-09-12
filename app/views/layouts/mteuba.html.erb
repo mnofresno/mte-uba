@@ -9,19 +9,20 @@
     <title>
       <%= ['MteUba', yield(:title)].compact.join(' :: ') %>
     </title>
-    <%= stylesheet_link_tag "application" %>
-    <%= javascript_include_tag "application" %>
-    <%= csrf_meta_tag %>
+    <%= stylesheet_link_tag    'application'  , media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
     <%= head if respond_to? :head %>
     <%= yield :head %>
   </head>
 <body>
 
+
 <%= favicon_link_tag %>
     <input id="rails_root" type="hidden" value="<%= root_url %>"></input>
     <header>
       <div class="header">
-        <div class="taller">
+        <div class="company">
           <h2>
             <a href="<%= root_path %>">
               <%= raw "#{current_taller.nombre}" unless current_taller.blank? %>
@@ -33,10 +34,12 @@
         </div>
       </div>
       <nav>
+      <a class="navbar-brand" href="#">MTE-UBA</a>
         <%= content_for?(:user_navigation) ? yield(:user_navigation) : render('shared/user_navigation') %>
         <%= render('shared/main_navigation') %>
       </nav>
     </header>
+
     <section>
       <div class="wat-cf" id="wrapper">
         <div id="main">
@@ -84,3 +87,5 @@
   </body>
 </body>
 </html>
+
+

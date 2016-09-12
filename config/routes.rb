@@ -19,7 +19,7 @@ Rails.application.routes.draw do
         registrations: 'usuarios/registrations'
       } do
   get '/login' => 'usuarios/sessions#new', as: :login
-  get '/usuarios/sign_out' => 'usuarios/sessions#destroy', as: :logout
+  get '/logout' => 'usuarios/sessions#destroy', as: :logout
 
   patch '/usuarios/sign_up' => 'usuarios/registrations#update', as: :usuario_registration
   post '/usuarios/sign_up' => 'usuarios/registrations#create', as: :usuario_registration

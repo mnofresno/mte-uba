@@ -17,6 +17,11 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+
+gem 'jquery-ui-rails'
+
+gem 'blockuijs-rails', git: 'git://github.com/rusanu/blockuijs-rails.git'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -70,5 +75,9 @@ gem 'cocoon'
 #
 gem 'cancancan', '~> 1.10'
 #
-#gem 'font-awesome-rails'
+gem 'font-awesome-rails'
+
+gem 'formtastic'
+
+gem 'attrtastic'
 
