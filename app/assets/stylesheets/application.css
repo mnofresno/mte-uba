@@ -12,4 +12,463 @@
  *
  *= require_tree .
  *= require_self
- */
+ *= require formtastic
+ *= require font-awesome
+ *= require jquery-ui
+*/
+.errors {
+  background-color: #f4f4f4 !important;
+  margin-bottom: 20px !important;
+  margin-left: 0px !important;
+  padding: 10px !important;
+  width: 400px;
+  border: 1px solid;
+  list-style: none !important;
+}
+
+#filters input {
+  height: 25px;
+}
+
+/* line 1, ../../app/assets/stylesheets/application.sass */
+#ui-datepicker-div {
+  display: none;
+}
+
+.token-input-list-facebook {
+  width: 250px !important;
+}
+
+/* line 4, ../../app/assets/stylesheets/application.sass */
+form.formtastic fieldset > ol > li label {
+  float: none;
+}
+
+form.formtastic fieldset > ol > li > input .button {
+  background-color: #ffc824 !important;
+  color: white;
+}
+
+form.formtastic .input {
+    overflow: hidden;
+    padding: 0px 0px;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+/* line 7, ../../app/assets/stylesheets/application.sass */
+#ui-datepicker-div {
+  display: none;
+}
+
+/* line 10, ../../app/assets/stylesheets/application.sass */
+form.formtastic fieldset > ol > li label {
+  float: none;
+}
+
+form.formtastic .stringish input {
+    width: 70%;
+    margin-top: 1%;
+}
+
+/* line 15, ../../app/assets/stylesheets/application.sass */
+table.table th {
+  padding: 0.5%;
+  font-weight: bold;
+  text-align: center;
+}
+
+table.table tr {
+  padding: 0%;
+  margin: 0%;
+}
+
+table.table tr td.actions a {
+  visibility: hidden;
+}
+
+table.table tr td {
+  padding: 0.5%;
+  height: 1%;
+}
+
+/* line 18, ../../app/assets/stylesheets/application.sass */
+table.table tr .default_row td {
+  background-color: #ffc824;
+  color: white;
+}
+/* line 21, ../../app/assets/stylesheets/application.sass */
+table.table tr:hover td.actions a {
+  visibility: visible;
+}
+/* line 23, ../../app/assets/stylesheets/application.sass */
+table.table tr:hover {
+  background-color: #f7f7c8;
+  color: black;
+}
+
+/* modificaciones incrementales luis - 2014 7 19*/
+html {
+  width: 100%;
+  height: 100%;
+  font-size: small;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-size: small;
+}
+
+header {
+  display: block;
+  background-color: #261f1f;
+  background-repeat: no-repeat;
+  background-position: 1% 1%;
+  padding: 0 0px;
+  width: 100%;
+  height: 10%;
+}
+
+section {
+  display: block;
+  float: left;
+  /* overflow: hidden; */
+  width: 89%;
+}
+
+nav {
+  display: block;
+  float: left;
+  overflow: hidden;
+  width: 99%;
+}
+
+aside {
+  display: block;
+  float: right;
+  margin-left: 0%;
+  margin-top: 1%;
+  overflow: hidden;
+  width: 10%;
+}
+
+footer {
+  display: block;
+  float: left;
+  margin-left: 2px;
+  /* overflow: hidden; */
+  width: 100%;
+}
+div.header {
+  background-color: #261f1f;
+  float: left;
+  width: 100%;
+  font-size: small;
+}
+
+div.company {
+  position: relative;
+  margin-top: 0px;
+  padding: 1% 0;
+  float: left;
+  width: 70%;
+}
+
+div.status {
+  position: relative;
+  margin-top: 0px;
+  padding: 1% 0;
+  float: right;
+  width: 20%;
+}
+
+div.company h2 {
+  margin: 1px 0;
+  width: 80%;
+}
+
+div.company h2 a {
+  color: white;
+}
+
+div.status h5 {
+  color: white;
+}
+
+div.status h5 a {
+  color: white;
+}
+
+div#main-navigation {
+  width: 99%;
+  color: white;
+}
+
+div#main {
+  width: 99%;
+}
+
+div.block {
+  width: 100%;
+  height: 100%;
+  padding-top: 3%;
+  /* position: relative; */
+}
+
+div.block-info {
+  width: 97%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  float: left;
+}
+
+div.control {
+  margin-right: 0%;
+  margin-top: 0%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  float: right;
+}
+
+div.content {
+  width: 100%;
+  height: 100%;
+}
+
+div.block div.content div.inner {
+  width: 98%;
+  padding: 0 0 0;
+}
+
+div.inner {
+  width: 100%;
+  height: 100%;
+  padding: 0 0 0;
+}
+
+div.order_container {
+  width: 100%;
+  height: 100%;
+  padding: 0 0 0;
+}
+
+div.login {
+  width: 90%;
+  height: 90%;
+  position: relative;
+}
+
+div#tag_cloud {
+  width: 90%;
+  padding-left: 1%;
+}
+
+div.accordion {
+  width: 97%;
+}
+/*
+div.wat-cf {
+  width: 99%;
+  height: 99%;
+  position: relative;
+  display: block;
+}
+*/
+
+section div#wrapper {
+  padding-top: 1%;
+  padding-left: 1%;
+  padding: 1% 1%;
+  width: 100%;
+  position: relative;
+  display: block;
+}
+
+div.content div.inner form.formtastic {
+  font-size: small;
+  width: 98%;
+}
+
+div#factura_container {
+  width: 99%;
+}
+
+form#new_factura fieldset.inputs {
+  font-size: small;
+  width: 100%;
+}
+
+form#new_factura {
+ width: 98%;
+}
+
+h1 {
+  margin: 10px 0;
+}
+
+table.table {
+  width: 97%;
+}
+
+div.attribute {
+  float: left;
+  width: 100%;
+  font-size:medium;
+}
+
+div.label {
+  position: relative;
+  text-align: left;
+  float: left;
+  color: black;
+  width: 30%;
+  font-weight:bold;
+  font-size:100%;
+}
+
+div.data {
+  position: relative;
+  text-align: left;
+  float: right;
+  color: black;
+  width: 69%;
+  font-size:100%;
+}
+
+div#full-main {
+  width: 100%;
+  float: left;
+}
+
+#map-canvas {
+  height: 90%;
+  width: 62%;
+  margin: 0px;
+  padding: 0px;
+}
+
+div.tab-content {
+  width: 97%;
+  float: left;
+  /* border: 1px solid; */
+}
+
+div.tab-pane {
+  width: 47%;
+  position: relative;
+  float: left;
+  padding: 1%;
+}
+
+div.tab-pane ul.navigation {
+  list-style-position: inside;
+  float: left;
+  padding: 1%;
+}
+
+div.tab-pane ul.navigation li.fa {
+  vertical-align: 70%;
+  padding: 5px 10px;
+}
+
+div.navigation ul {
+  list-style-position: inside;
+  float: left;
+  padding: 1%;
+}
+
+div.navigation ul li.fa {
+  vertical-align: 70%;
+  padding: 1px 2px;
+}
+
+/* factura */
+table.factura_detalle_items tr td {
+  padding-top:1px;
+  padding-bottom:1px
+}
+
+table.factura_detalle_items tr td textarea.description {
+  padding-top:1px;
+  padding-bottom:1px;
+  height:25px !important;
+  margin: 0px !important;
+}
+
+div#container {
+  padding: 1% 0;
+}
+
+div#box {
+  float: left;
+  margin: 1px;
+  padding: 1%;
+  width: 47%;
+  border: 1px solid black;
+}
+
+div#box_login {
+  margin: 2% 10%;
+  width: 80%;
+}
+
+div#table {
+  width: 100%;
+  display:table;
+}
+div#thead {
+  display:table-header-group;
+  width: 100%;
+  height: 20px;
+}
+div#th {display:table-cell;
+  width: 10%;
+  text-align: center;
+  vertical-align: middle;
+  background-color: lightgrey;
+  font-size: small;
+  font-style: "bold";
+}
+div#tbody {
+  display:table-row-group;
+  width: 100%;
+  height: 20px;
+}
+
+div#td {
+  display:table-cell;
+  width: 10%;
+  text-align: center;
+  vertical-align: middle;
+}
+div#tr {
+  display:table-row;
+  width: 100%;
+  line-height: 20px;
+}
+
+input.amount {
+  width: 100%;
+}
+
+li:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+div.attrtastic div.attributes ol{
+  float: left;
+  width: 45%;
+  padding-left: 1%;
+}
+
+.formtastic .input .label {
+  display:block;
+  width: 45%;
+  float:left;
+  padding-top:.2em;
+}
+/*
+#depots section {width:100%;padding:20px 0;}
+.clear {clear:both;} */
+#depots section {float:left;width:33.3%;}
