@@ -5,11 +5,11 @@ one:
   marca: MyString
   año: 1
   fueraDeServicio: false
-  taller_id: 
+  taller_id:
 
 two:
   patente: MyString
   marca: MyString
   año: 1
   fueraDeServicio: false
-  taller_id: 
+  taller_id:

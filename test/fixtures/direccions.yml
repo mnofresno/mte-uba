@@ -3,11 +3,11 @@
 one:
   calle: MyString
   altura: 1
-  direccionable_id: 
+  direccionable_id:
   direccionable_type: Direccionable
 
 two:
   calle: MyString
   altura: 1
-  direccionable_id: 
+  direccionable_id:
   direccionable_type: Direccionable

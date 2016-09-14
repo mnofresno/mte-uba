@@ -4,10 +4,10 @@ one:
   nombre: MyString
   apellido: MyString
   radio: MyString
-  taller_id: 
+  taller_id:
 
 two:
   nombre: MyString
   apellido: MyString
   radio: MyString
-  taller_id: 
+  taller_id:
