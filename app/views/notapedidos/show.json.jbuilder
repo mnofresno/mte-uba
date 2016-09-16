@@ -1,1 +1,0 @@
-json.partial! "notapedidos/notapedido", notapedido: @notapedido

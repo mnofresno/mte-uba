@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :notareparacions
-  resources :notapedidos
   resources :unidads
   resources :proveedors
   resources :chofers

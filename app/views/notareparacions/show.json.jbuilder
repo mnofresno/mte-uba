@@ -1,1 +1,0 @@
-json.partial! "notareparacions/notareparacion", notareparacion: @notareparacion

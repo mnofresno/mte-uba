@@ -1,1 +1,0 @@
-json.array! @notapedidos, partial: 'notapedidos/notapedido', as: :notapedido
