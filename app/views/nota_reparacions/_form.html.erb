@@ -1,0 +1,25 @@
+<%= form_for(@nota_reparacion) do |f| %>
+  <% if @nota_reparacion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@nota_reparacion.errors.count, "error") %> prohibited this nota_reparacion from being saved:</h2>
+
+      <ul>
+      <% @nota_reparacion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :numeroserie %><br>
+    <%= f.text_field :numeroserie %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha %><br>
+    <%= f.date_select :fecha %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Numeroserie:</strong>
+  <%= @nota_pedido.numeroserie %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @nota_pedido.fecha %>
+</p>
+
+<%= link_to 'Edit', edit_nota_pedido_path(@nota_pedido) %> |
+<%= link_to 'Back', nota_pedidos_path %>

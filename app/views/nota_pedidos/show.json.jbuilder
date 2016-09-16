@@ -1,0 +1,1 @@
+json.partial! "nota_pedidos/nota_pedido", nota_pedido: @nota_pedido

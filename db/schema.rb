@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160912050739) do
+ActiveRecord::Schema.define(version: 20160916180215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,17 @@ ActiveRecord::Schema.define(version: 20160912050739) do
   end
 
   add_index "chofers", ["taller_id"], name: "index_chofers_on_taller_id", using: :btree
+
+  create_table "detalles", force: :cascade do |t|
+    t.integer  "cantidad"
+    t.string   "descripcion"
+    t.integer  "detallable_id"
+    t.string   "detallable_type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "detalles", ["detallable_type", "detallable_id"], name: "index_detalles_on_detallable_type_and_detallable_id", using: :btree
 
   create_table "direccions", force: :cascade do |t|
     t.string   "calle"
@@ -50,6 +61,20 @@ ActiveRecord::Schema.define(version: 20160912050739) do
   add_index "memberships", ["role_id"], name: "index_memberships_on_role_id", using: :btree
   add_index "memberships", ["taller_id"], name: "index_memberships_on_taller_id", using: :btree
   add_index "memberships", ["usuario_id"], name: "index_memberships_on_usuario_id", using: :btree
+
+  create_table "nota_pedidos", force: :cascade do |t|
+    t.string   "numeroserie"
+    t.date     "fecha"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "nota_reparacions", force: :cascade do |t|
+    t.string   "numeroserie"
+    t.date     "fecha"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "proveedors", force: :cascade do |t|
     t.string   "nombre"

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Nota Pedidos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Numeroserie</th>
+      <th>Fecha</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @nota_pedidos.each do |nota_pedido| %>
+      <tr>
+        <td><%= nota_pedido.numeroserie %></td>
+        <td><%= nota_pedido.fecha %></td>
+        <td><%= link_to 'Show', nota_pedido %></td>
+        <td><%= link_to 'Edit', edit_nota_pedido_path(nota_pedido) %></td>
+        <td><%= link_to 'Destroy', nota_pedido, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Nota pedido', new_nota_pedido_path %>

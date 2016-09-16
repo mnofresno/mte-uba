@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :detalles
+  resources :nota_reparacions
+  resources :nota_pedidos
   resources :unidads
   resources :proveedors
   resources :chofers
