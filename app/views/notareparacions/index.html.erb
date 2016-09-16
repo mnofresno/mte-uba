@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Notareparacions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @notareparacions.each do |notareparacion| %>
+      <tr>
+        <td><%= link_to 'Show', notareparacion %></td>
+        <td><%= link_to 'Edit', edit_notareparacion_path(notareparacion) %></td>
+        <td><%= link_to 'Destroy', notareparacion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Notareparacion', new_notareparacion_path %>

@@ -1,0 +1,1 @@
+json.array! @notareparacions, partial: 'notareparacions/notareparacion', as: :notareparacion
