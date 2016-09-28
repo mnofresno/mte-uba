@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: nota_pedidos
+# Table name: notas_pedidos
 #
 #  id          :integer          not null, primary key
 #  numeroserie :string

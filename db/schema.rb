@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160928204155) do
+ActiveRecord::Schema.define(version: 20160928213829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,14 +76,14 @@ ActiveRecord::Schema.define(version: 20160928204155) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "proveedors", force: :cascade do |t|
+  create_table "proveedores", force: :cascade do |t|
     t.string   "nombre"
     t.integer  "taller_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "proveedors", ["taller_id"], name: "index_proveedors_on_taller_id", using: :btree
+  add_index "proveedores", ["taller_id"], name: "index_proveedores_on_taller_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
@@ -152,6 +152,6 @@ ActiveRecord::Schema.define(version: 20160928204155) do
   add_foreign_key "memberships", "roles", column: "role_id"
   add_foreign_key "memberships", "talleres"
   add_foreign_key "memberships", "usuarios"
-  add_foreign_key "proveedors", "talleres"
+  add_foreign_key "proveedores", "talleres"
   add_foreign_key "unidades", "talleres"
 end

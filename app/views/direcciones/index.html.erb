@@ -15,7 +15,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @direccions.each do |direccion| %>
+    <% @direcciones.each do |direccion| %>
       <tr>
         <td><%= link_to direccion.id, direccion_path(direccion) %></td>
         <td><%= direccion.calle %></td>

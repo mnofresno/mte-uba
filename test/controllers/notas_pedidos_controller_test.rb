@@ -2,13 +2,13 @@ require 'test_helper'
 
 class NotaPedidosControllerTest < ActionController::TestCase
   setup do
-    @nota_pedido = nota_pedidos(:one)
+    @nota_pedido = notas_pedidos(:one)
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:nota_pedidos)
+    assert_not_nil assigns(:notas_pedidos)
   end
 
   test "should get new" do
@@ -44,6 +44,6 @@ class NotaPedidosControllerTest < ActionController::TestCase
       delete :destroy, id: @nota_pedido
     end
 
-    assert_redirected_to nota_pedidos_path
+    assert_redirected_to notas_pedidos_path
   end
 end

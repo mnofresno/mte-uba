@@ -2,13 +2,13 @@ require 'test_helper'
 
 class ProveedorsControllerTest < ActionController::TestCase
   setup do
-    @proveedor = proveedors(:one)
+    @proveedor = proveedores(:one)
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:proveedors)
+    assert_not_nil assigns(:proveedores)
   end
 
   test "should get new" do
@@ -44,6 +44,6 @@ class ProveedorsControllerTest < ActionController::TestCase
       delete :destroy, id: @proveedor
     end
 
-    assert_redirected_to proveedors_path
+    assert_redirected_to proveedores_path
   end
 end

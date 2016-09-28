@@ -2,13 +2,13 @@ require 'test_helper'
 
 class DireccionsControllerTest < ActionController::TestCase
   setup do
-    @direccion = direccions(:one)
+    @direccion = direcciones(:one)
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:direccions)
+    assert_not_nil assigns(:direcciones)
   end
 
   test "should get new" do
@@ -44,6 +44,6 @@ class DireccionsControllerTest < ActionController::TestCase
       delete :destroy, id: @direccion
     end
 
-    assert_redirected_to direccions_path
+    assert_redirected_to direcciones_path
   end
 end

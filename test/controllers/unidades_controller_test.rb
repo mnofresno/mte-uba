@@ -2,13 +2,13 @@ require 'test_helper'
 
 class UnidadsControllerTest < ActionController::TestCase
   setup do
-    @unidad = unidads(:one)
+    @unidad = unidades(:one)
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:unidads)
+    assert_not_nil assigns(:unidades)
   end
 
   test "should get new" do
@@ -44,6 +44,6 @@ class UnidadsControllerTest < ActionController::TestCase
       delete :destroy, id: @unidad
     end
 
-    assert_redirected_to unidads_path
+    assert_redirected_to unidades_path
   end
 end

@@ -2,13 +2,13 @@ require 'test_helper'
 
 class ChofersControllerTest < ActionController::TestCase
   setup do
-    @chofer = chofers(:one)
+    @chofer = choferes(:one)
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:chofers)
+    assert_not_nil assigns(:choferes)
   end
 
   test "should get new" do
@@ -44,6 +44,6 @@ class ChofersControllerTest < ActionController::TestCase
       delete :destroy, id: @chofer
     end
 
-    assert_redirected_to chofers_path
+    assert_redirected_to choferes_path
   end
 end

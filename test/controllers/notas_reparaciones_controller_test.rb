@@ -2,13 +2,13 @@ require 'test_helper'
 
 class NotaReparacionsControllerTest < ActionController::TestCase
   setup do
-    @nota_reparacion = nota_reparacions(:one)
+    @nota_reparacion = notas_reparaciones(:one)
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:nota_reparacions)
+    assert_not_nil assigns(:notas_reparaciones)
   end
 
   test "should get new" do
@@ -44,6 +44,6 @@ class NotaReparacionsControllerTest < ActionController::TestCase
       delete :destroy, id: @nota_reparacion
     end
 
-    assert_redirected_to nota_reparacions_path
+    assert_redirected_to notas_reparaciones_path
   end
 end
