@@ -1,28 +1,28 @@
-class NotaPedidosController < ApplicationController
+class NotasPedidosController < ApplicationController
   before_action :set_nota_pedido, only: [:show, :edit, :update, :destroy]
 
-  # GET /nota_pedidos
-  # GET /nota_pedidos.json
+  # GET /notas_pedidos
+  # GET /notas_pedidos.json
   def index
-    @nota_pedidos = NotaPedido.all
+    @notas_pedidos = NotaPedido.all
   end
 
-  # GET /nota_pedidos/1
-  # GET /nota_pedidos/1.json
+  # GET /notas_pedidos/1
+  # GET /notas_pedidos/1.json
   def show
   end
 
-  # GET /nota_pedidos/new
+  # GET /notas_pedidos/new
   def new
     @nota_pedido = NotaPedido.new
   end
 
-  # GET /nota_pedidos/1/edit
+  # GET /notas_pedidos/1/edit
   def edit
   end
 
-  # POST /nota_pedidos
-  # POST /nota_pedidos.json
+  # POST /notas_pedidos
+  # POST /notas_pedidos.json
   def create
     @nota_pedido = NotaPedido.new(nota_pedido_params)
 
@@ -37,8 +37,8 @@ class NotaPedidosController < ApplicationController
     end
   end
 
-  # PATCH/PUT /nota_pedidos/1
-  # PATCH/PUT /nota_pedidos/1.json
+  # PATCH/PUT /notas_pedidos/1
+  # PATCH/PUT /notas_pedidos/1.json
   def update
     respond_to do |format|
       if @nota_pedido.update(nota_pedido_params)
@@ -51,12 +51,12 @@ class NotaPedidosController < ApplicationController
     end
   end
 
-  # DELETE /nota_pedidos/1
-  # DELETE /nota_pedidos/1.json
+  # DELETE /notas_pedidos/1
+  # DELETE /notas_pedidos/1.json
   def destroy
     @nota_pedido.destroy
     respond_to do |format|
-      format.html { redirect_to nota_pedidos_url, notice: 'Nota pedido was successfully destroyed.' }
+      format.html { redirect_to notas_pedidos_url, notice: 'Nota pedido was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

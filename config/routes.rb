@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
   resources :detalles
-  resources :nota_reparacions
-  resources :nota_pedidos
-  resources :unidads
-  resources :proveedors
-  resources :chofers
+  resources :notas_reparaciones
+  resources :notas_pedidos
+  resources :unidades
+  resources :proveedores
+  resources :choferes
   resources :memberships
   resources :roles
-  resources :direccions
-  resources :tallers
+  resources :direcciones
+  resources :talleres
   resource :dashboard, only: :show
   resource :setting, only: :show
   root to: 'dashboards#show'

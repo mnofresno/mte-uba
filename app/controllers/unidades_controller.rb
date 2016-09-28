@@ -1,28 +1,28 @@
-class UnidadsController < AuthorizedController
+class UnidadesController < AuthorizedController
   before_action :set_unidad, only: [:show, :edit, :update, :destroy]
 
-  # GET /unidads
-  # GET /unidads.json
+  # GET /unidades
+  # GET /unidades.json
   def index
-    @unidads = Unidad.all
+    @unidades = Unidad.all
   end
 
-  # GET /unidads/1
-  # GET /unidads/1.json
+  # GET /unidades/1
+  # GET /unidades/1.json
   def show
   end
 
-  # GET /unidads/new
+  # GET /unidades/new
   def new
     @unidad = Unidad.new
   end
 
-  # GET /unidads/1/edit
+  # GET /unidades/1/edit
   def edit
   end
 
-  # POST /unidads
-  # POST /unidads.json
+  # POST /unidades
+  # POST /unidades.json
   def create
     @unidad = Unidad.new(unidad_params)
 
@@ -37,8 +37,8 @@ class UnidadsController < AuthorizedController
     end
   end
 
-  # PATCH/PUT /unidads/1
-  # PATCH/PUT /unidads/1.json
+  # PATCH/PUT /unidades/1
+  # PATCH/PUT /unidades/1.json
   def update
     respond_to do |format|
       if @unidad.update(unidad_params)
@@ -51,12 +51,12 @@ class UnidadsController < AuthorizedController
     end
   end
 
-  # DELETE /unidads/1
-  # DELETE /unidads/1.json
+  # DELETE /unidades/1
+  # DELETE /unidades/1.json
   def destroy
     @unidad.destroy
     respond_to do |format|
-      format.html { redirect_to unidads_url, notice: 'Unidad was successfully destroyed.' }
+      format.html { redirect_to unidades_url, notice: 'Unidad was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

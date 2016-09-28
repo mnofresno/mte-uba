@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: chofers
+# Table name: choferes
 #
 #  id         :integer          not null, primary key
 #  nombre     :string
@@ -12,11 +12,11 @@
 #
 # Indexes
 #
-#  index_chofers_on_taller_id  (taller_id)
+#  index_choferes_on_taller_id  (taller_id)
 #
 # Foreign Keys
 #
-#  fk_rails_0a1b307730  (taller_id => tallers.id)
+#  fk_rails_0a1b307730  (taller_id => talleres.id)
 #
 
 class Chofer < ActiveRecord::Base

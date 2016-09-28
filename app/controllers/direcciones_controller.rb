@@ -1,28 +1,28 @@
-class DireccionsController < AuthorizedController
+class DireccionesController < AuthorizedController
   before_action :set_direccion, only: [:show, :edit, :update, :destroy]
 
-  # GET /direccions
-  # GET /direccions.json
+  # GET /direcciones
+  # GET /direcciones.json
   def index
-    @direccions = Direccion.all
+    @direcciones = Direccion.all
   end
 
-  # GET /direccions/1
-  # GET /direccions/1.json
+  # GET /direcciones/1
+  # GET /direcciones/1.json
   def show
   end
 
-  # GET /direccions/new
+  # GET /direcciones/new
   def new
     @direccion = Direccion.new
   end
 
-  # GET /direccions/1/edit
+  # GET /direcciones/1/edit
   def edit
   end
 
-  # POST /direccions
-  # POST /direccions.json
+  # POST /direcciones
+  # POST /direcciones.json
   def create
     @direccion = Direccion.new(direccion_params)
 
@@ -37,8 +37,8 @@ class DireccionsController < AuthorizedController
     end
   end
 
-  # PATCH/PUT /direccions/1
-  # PATCH/PUT /direccions/1.json
+  # PATCH/PUT /direcciones/1
+  # PATCH/PUT /direcciones/1.json
   def update
     respond_to do |format|
       if @direccion.update(direccion_params)
@@ -51,12 +51,12 @@ class DireccionsController < AuthorizedController
     end
   end
 
-  # DELETE /direccions/1
-  # DELETE /direccions/1.json
+  # DELETE /direcciones/1
+  # DELETE /direcciones/1.json
   def destroy
     @direccion.destroy
     respond_to do |format|
-      format.html { redirect_to direccions_url, notice: 'Direccion was successfully destroyed.' }
+      format.html { redirect_to direcciones_url, notice: 'Direccion was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

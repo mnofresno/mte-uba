@@ -1,28 +1,28 @@
-class NotaReparacionsController < ApplicationController
+class NotasReparacionesController < ApplicationController
   before_action :set_nota_reparacion, only: [:show, :edit, :update, :destroy]
 
-  # GET /nota_reparacions
-  # GET /nota_reparacions.json
+  # GET /notas_reparaciones
+  # GET /notas_reparaciones.json
   def index
-    @nota_reparacions = NotaReparacion.all
+    @notas_reparaciones = NotaReparacion.all
   end
 
-  # GET /nota_reparacions/1
-  # GET /nota_reparacions/1.json
+  # GET /notas_reparaciones/1
+  # GET /notas_reparaciones/1.json
   def show
   end
 
-  # GET /nota_reparacions/new
+  # GET /notas_reparaciones/new
   def new
     @nota_reparacion = NotaReparacion.new
   end
 
-  # GET /nota_reparacions/1/edit
+  # GET /notas_reparaciones/1/edit
   def edit
   end
 
-  # POST /nota_reparacions
-  # POST /nota_reparacions.json
+  # POST /notas_reparaciones
+  # POST /notas_reparaciones.json
   def create
     @nota_reparacion = NotaReparacion.new(nota_reparacion_params)
 
@@ -37,8 +37,8 @@ class NotaReparacionsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /nota_reparacions/1
-  # PATCH/PUT /nota_reparacions/1.json
+  # PATCH/PUT /notas_reparaciones/1
+  # PATCH/PUT /notas_reparaciones/1.json
   def update
     respond_to do |format|
       if @nota_reparacion.update(nota_reparacion_params)
@@ -51,12 +51,12 @@ class NotaReparacionsController < ApplicationController
     end
   end
 
-  # DELETE /nota_reparacions/1
-  # DELETE /nota_reparacions/1.json
+  # DELETE /notas_reparaciones/1
+  # DELETE /notas_reparaciones/1.json
   def destroy
     @nota_reparacion.destroy
     respond_to do |format|
-      format.html { redirect_to nota_reparacions_url, notice: 'Nota reparacion was successfully destroyed.' }
+      format.html { redirect_to notas_reparaciones_url, notice: 'Nota reparacion was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

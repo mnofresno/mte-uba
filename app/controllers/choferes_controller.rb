@@ -1,28 +1,28 @@
-class ChofersController < AuthorizedController
+class ChoferesController < AuthorizedController
   before_action :set_chofer, only: [:show, :edit, :update, :destroy]
 
-  # GET /chofers
-  # GET /chofers.json
+  # GET /choferes
+  # GET /choferes.json
   def index
-    @chofers = Chofer.all
+    @choferes = Chofer.all
   end
 
-  # GET /chofers/1
-  # GET /chofers/1.json
+  # GET /choferes/1
+  # GET /choferes/1.json
   def show
   end
 
-  # GET /chofers/new
+  # GET /choferes/new
   def new
     @chofer = Chofer.new
   end
 
-  # GET /chofers/1/edit
+  # GET /choferes/1/edit
   def edit
   end
 
-  # POST /chofers
-  # POST /chofers.json
+  # POST /choferes
+  # POST /choferes.json
   def create
     @chofer = Chofer.new(chofer_params)
 
@@ -37,8 +37,8 @@ class ChofersController < AuthorizedController
     end
   end
 
-  # PATCH/PUT /chofers/1
-  # PATCH/PUT /chofers/1.json
+  # PATCH/PUT /choferes/1
+  # PATCH/PUT /choferes/1.json
   def update
     respond_to do |format|
       if @chofer.update(chofer_params)
@@ -51,12 +51,12 @@ class ChofersController < AuthorizedController
     end
   end
 
-  # DELETE /chofers/1
-  # DELETE /chofers/1.json
+  # DELETE /choferes/1
+  # DELETE /choferes/1.json
   def destroy
     @chofer.destroy
     respond_to do |format|
-      format.html { redirect_to chofers_url, notice: 'Chofer was successfully destroyed.' }
+      format.html { redirect_to choferes_url, notice: 'Chofer was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

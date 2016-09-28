@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: tallers
+# Table name: talleres
 #
 #  id         :integer          not null, primary key
 #  nombre     :string
@@ -10,7 +10,7 @@
 #
 # Indexes
 #
-#  index_tallers_on_owner_id  (owner_id)
+#  index_talleres_on_owner_id  (owner_id)
 #
 
 class Taller < ActiveRecord::Base

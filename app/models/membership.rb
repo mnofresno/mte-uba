@@ -18,7 +18,7 @@
 #
 # Foreign Keys
 #
-#  fk_rails_9caee70cb5  (taller_id => tallers.id)
+#  fk_rails_9caee70cb5  (taller_id => talleres.id)
 #  fk_rails_ab987c7623  (role_id => roles.id)
 #  fk_rails_adc0c72a4e  (usuario_id => usuarios.id)
 #

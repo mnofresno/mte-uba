@@ -1,28 +1,28 @@
-class ProveedorsController < AuthorizedController
+class ProveedoresController < AuthorizedController
   before_action :set_proveedor, only: [:show, :edit, :update, :destroy]
 
-  # GET /proveedors
-  # GET /proveedors.json
+  # GET /proveedores
+  # GET /proveedores.json
   def index
-    @proveedors = Proveedor.all
+    @proveedores = Proveedor.all
   end
 
-  # GET /proveedors/1
-  # GET /proveedors/1.json
+  # GET /proveedores/1
+  # GET /proveedores/1.json
   def show
   end
 
-  # GET /proveedors/new
+  # GET /proveedores/new
   def new
     @proveedor = Proveedor.new
   end
 
-  # GET /proveedors/1/edit
+  # GET /proveedores/1/edit
   def edit
   end
 
-  # POST /proveedors
-  # POST /proveedors.json
+  # POST /proveedores
+  # POST /proveedores.json
   def create
     @proveedor = Proveedor.new(proveedor_params)
 
@@ -37,8 +37,8 @@ class ProveedorsController < AuthorizedController
     end
   end
 
-  # PATCH/PUT /proveedors/1
-  # PATCH/PUT /proveedors/1.json
+  # PATCH/PUT /proveedores/1
+  # PATCH/PUT /proveedores/1.json
   def update
     respond_to do |format|
       if @proveedor.update(proveedor_params)
@@ -51,12 +51,12 @@ class ProveedorsController < AuthorizedController
     end
   end
 
-  # DELETE /proveedors/1
-  # DELETE /proveedors/1.json
+  # DELETE /proveedores/1
+  # DELETE /proveedores/1.json
   def destroy
     @proveedor.destroy
     respond_to do |format|
-      format.html { redirect_to proveedors_url, notice: 'Proveedor was successfully destroyed.' }
+      format.html { redirect_to proveedores_url, notice: 'Proveedor was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

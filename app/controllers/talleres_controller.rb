@@ -1,28 +1,28 @@
-class TallersController < AuthorizedController
+class TalleresController < AuthorizedController
   before_action :set_taller, only: [:show, :edit, :update, :destroy]
 
-  # GET /tallers
-  # GET /tallers.json
+  # GET /talleres
+  # GET /talleres.json
   def index
-    @tallers = Taller.all
+    @talleres = Taller.all
   end
 
-  # GET /tallers/1
-  # GET /tallers/1.json
+  # GET /talleres/1
+  # GET /talleres/1.json
   def show
   end
 
-  # GET /tallers/new
+  # GET /talleres/new
   def new
     @taller = Taller.new
   end
 
-  # GET /tallers/1/edit
+  # GET /talleres/1/edit
   def edit
   end
 
-  # POST /tallers
-  # POST /tallers.json
+  # POST /talleres
+  # POST /talleres.json
   def create
     @taller = Taller.new(taller_params)
 
@@ -37,8 +37,8 @@ class TallersController < AuthorizedController
     end
   end
 
-  # PATCH/PUT /tallers/1
-  # PATCH/PUT /tallers/1.json
+  # PATCH/PUT /talleres/1
+  # PATCH/PUT /talleres/1.json
   def update
     respond_to do |format|
       if @taller.update(taller_params)
@@ -51,12 +51,12 @@ class TallersController < AuthorizedController
     end
   end
 
-  # DELETE /tallers/1
-  # DELETE /tallers/1.json
+  # DELETE /talleres/1
+  # DELETE /talleres/1.json
   def destroy
     @taller.destroy
     respond_to do |format|
-      format.html { redirect_to tallers_url, notice: 'Taller was successfully destroyed.' }
+      format.html { redirect_to talleres_url, notice: 'Taller was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

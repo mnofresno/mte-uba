@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160916180215) do
+ActiveRecord::Schema.define(version: 20160928204155) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "chofers", force: :cascade do |t|
+  create_table "choferes", force: :cascade do |t|
     t.string   "nombre"
     t.string   "apellido"
     t.string   "radio"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20160916180215) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "chofers", ["taller_id"], name: "index_chofers_on_taller_id", using: :btree
+  add_index "choferes", ["taller_id"], name: "index_choferes_on_taller_id", using: :btree
 
   create_table "detalles", force: :cascade do |t|
     t.integer  "cantidad"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20160916180215) do
 
   add_index "detalles", ["detallable_type", "detallable_id"], name: "index_detalles_on_detallable_type_and_detallable_id", using: :btree
 
-  create_table "direccions", force: :cascade do |t|
+  create_table "direcciones", force: :cascade do |t|
     t.string   "calle"
     t.integer  "altura"
     t.integer  "direccionable_id"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20160916180215) do
     t.datetime "updated_at",         null: false
   end
 
-  add_index "direccions", ["direccionable_type", "direccionable_id"], name: "index_direccions_on_direccionable_type_and_direccionable_id", using: :btree
+  add_index "direcciones", ["direccionable_type", "direccionable_id"], name: "index_direcciones_on_direccionable_type_and_direccionable_id", using: :btree
 
   create_table "memberships", force: :cascade do |t|
     t.integer  "role_id"
@@ -62,14 +62,14 @@ ActiveRecord::Schema.define(version: 20160916180215) do
   add_index "memberships", ["taller_id"], name: "index_memberships_on_taller_id", using: :btree
   add_index "memberships", ["usuario_id"], name: "index_memberships_on_usuario_id", using: :btree
 
-  create_table "nota_pedidos", force: :cascade do |t|
+  create_table "notas_pedidos", force: :cascade do |t|
     t.string   "numeroserie"
     t.date     "fecha"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  create_table "nota_reparacions", force: :cascade do |t|
+  create_table "notas_reparaciones", force: :cascade do |t|
     t.string   "numeroserie"
     t.date     "fecha"
     t.datetime "created_at",  null: false
@@ -91,16 +91,16 @@ ActiveRecord::Schema.define(version: 20160916180215) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "tallers", force: :cascade do |t|
+  create_table "talleres", force: :cascade do |t|
     t.string   "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "owner_id"
   end
 
-  add_index "tallers", ["owner_id"], name: "index_tallers_on_owner_id", using: :btree
+  add_index "talleres", ["owner_id"], name: "index_talleres_on_owner_id", using: :btree
 
-  create_table "unidads", force: :cascade do |t|
+  create_table "unidades", force: :cascade do |t|
     t.string   "patente"
     t.string   "marca"
     t.integer  "año"
@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(version: 20160916180215) do
     t.datetime "updated_at",      null: false
   end
 
-  add_index "unidads", ["taller_id"], name: "index_unidads_on_taller_id", using: :btree
+  add_index "unidades", ["taller_id"], name: "index_unidades_on_taller_id", using: :btree
 
   create_table "usuarios", force: :cascade do |t|
     t.string   "nombre"
@@ -148,10 +148,10 @@ ActiveRecord::Schema.define(version: 20160916180215) do
   add_index "usuarios", ["invited_by_id"], name: "index_usuarios_on_invited_by_id", using: :btree
   add_index "usuarios", ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "chofers", "tallers"
-  add_foreign_key "memberships", "roles"
-  add_foreign_key "memberships", "tallers"
+  add_foreign_key "choferes", "talleres"
+  add_foreign_key "memberships", "roles", column: "role_id"
+  add_foreign_key "memberships", "talleres"
   add_foreign_key "memberships", "usuarios"
-  add_foreign_key "proveedors", "tallers"
-  add_foreign_key "unidads", "tallers"
+  add_foreign_key "proveedors", "talleres"
+  add_foreign_key "unidades", "talleres"
 end
