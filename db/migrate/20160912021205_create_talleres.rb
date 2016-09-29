@@ -1,6 +1,6 @@
-class CreateTallers < ActiveRecord::Migration
+class CreateTalleres < ActiveRecord::Migration
   def change
-    create_table :tallers do |t|
+    create_table :talleres do |t|
       t.string :nombre
 
       t.timestamps null: false

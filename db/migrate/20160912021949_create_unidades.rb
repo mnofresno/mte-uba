@@ -1,6 +1,6 @@
-class CreateUnidads < ActiveRecord::Migration
+class CreateUnidades < ActiveRecord::Migration
   def change
-    create_table :unidads do |t|
+    create_table :unidades do |t|
       t.string :patente
       t.string :marca
       t.integer :año

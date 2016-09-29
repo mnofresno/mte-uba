@@ -14,7 +14,7 @@
 #
 # Foreign Keys
 #
-#  fk_rails_9faad6d824  (taller_id => talleres.id)
+#  fk_rails_85af39fcb4  (taller_id => talleres.id)
 #
 
 class Proveedor < ActiveRecord::Base

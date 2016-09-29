@@ -1,6 +1,6 @@
-class CreateDireccions < ActiveRecord::Migration
+class CreateDirecciones < ActiveRecord::Migration
   def change
-    create_table :direccions do |t|
+    create_table :direcciones do |t|
       t.string :calle
       t.integer :altura
       t.references :direccionable, polymorphic: true, index: true

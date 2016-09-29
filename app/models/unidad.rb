@@ -17,7 +17,7 @@
 #
 # Foreign Keys
 #
-#  fk_rails_5507aeb95c  (taller_id => talleres.id)
+#  fk_rails_9f7ec4ef64  (taller_id => talleres.id)
 #
 
 class Unidad < ActiveRecord::Base

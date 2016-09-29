@@ -1,6 +1,6 @@
-class CreateNotaReparacions < ActiveRecord::Migration
+class CreateNotaReparaciones < ActiveRecord::Migration
   def change
-    create_table :nota_reparacions do |t|
+    create_table :nota_reparaciones do |t|
       t.string :numeroserie
       t.date :fecha
 

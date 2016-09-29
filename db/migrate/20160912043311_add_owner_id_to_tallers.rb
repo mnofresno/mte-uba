@@ -1,7 +1,7 @@
 class AddOwnerIdToTallers < ActiveRecord::Migration
   def change
-    add_reference :tallers, :owner, refereces: :usuarios
-    add_index :tallers, :owner_id
-    #add_foreign_key :tallers, :owner, references: :usuarios
+    add_reference :talleres, :owner, refereces: :usuarios
+    add_index :talleres, :owner_id
+    #add_foreign_key :talleres, :owner, references: :usuarios
   end
 end

@@ -16,7 +16,7 @@
 #
 # Foreign Keys
 #
-#  fk_rails_0a1b307730  (taller_id => talleres.id)
+#  fk_rails_4e1c401416  (taller_id => talleres.id)
 #
 
 class Chofer < ActiveRecord::Base
