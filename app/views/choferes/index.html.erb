@@ -5,7 +5,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:nombre) %></th>
       <th><%= model_class.human_attribute_name(:apellido) %></th>
       <th><%= model_class.human_attribute_name(:radio) %></th>
@@ -15,13 +14,12 @@
     </tr>
   </thead>
   <tbody>
-    <% @chofers.each do |chofer| %>
+    <% @choferes.each do |chofer| %>
       <tr>
-        <td><%= link_to chofer.id, chofer_path(chofer) %></td>
         <td><%= chofer.nombre %></td>
         <td><%= chofer.apellido %></td>
         <td><%= chofer.radio %></td>
-        <td><%= chofer.taller_id %></td>
+        <td><%= chofer.taller_nombre %></td>
         <td><%=l chofer.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

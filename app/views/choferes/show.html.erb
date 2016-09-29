@@ -11,11 +11,11 @@
   <dt><strong><%= model_class.human_attribute_name(:radio) %>:</strong></dt>
   <dd><%= @chofer.radio %></dd>
   <dt><strong><%= model_class.human_attribute_name(:taller_id) %>:</strong></dt>
-  <dd><%= @chofer.taller_id %></dd>
+  <dd><%= @chofer.taller.nombre%></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
-              chofers_path, :class => 'btn btn-default'  %>
+              choferes_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_chofer_path(@chofer), :class => 'btn btn-default' %>
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

@@ -4,7 +4,7 @@ class ChoferesController < AuthorizedController
   # GET /choferes
   # GET /choferes.json
   def index
-    @choferes = Chofer.all
+    @choferes = Chofer.joins(:taller).select('choferes.*, talleres.nombre as taller_nombre')
   end
 
   # GET /choferes/1

@@ -20,5 +20,5 @@
 #
 
 class Chofer < ActiveRecord::Base
-  belongs_to :taller
+  belongs_to :taller, :class_name => Taller, :foreign_key => "taller_id"
 end

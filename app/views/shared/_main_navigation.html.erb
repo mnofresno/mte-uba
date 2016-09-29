@@ -7,6 +7,7 @@
     <% menu.item('Nota Reparacion', root_path, :active => controller.controller_name.include?('unidades')) %>
     <%# menu.item(NotaPedido.model_name.human, notapedido_path, :active => controller.controller_name.include?('notapedio')) %>
     <%# menu.item(NotaReparacion.model_name.human.pluralize, notareparacion_path, :active => controller.controller_name.include?('notareparacion')) %>
+    <% menu.item(Chofer.model_name.human.pluralize, choferes_path, :active => controller.controller_name.include?('choferes')) %>
   <%# end %>
 
 <% end %>

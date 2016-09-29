@@ -39,7 +39,7 @@
   <div class="form-group">
     <%= f.label :taller_id, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :taller_id, :class => 'form-control' %>
+      <%= f.select(:taller_id, Taller.all.collect {|u| [u.nombre, u.id]}, { :prompt => true }, {:class => "form-control"}) %>
     </div>
     <%=f.error_span(:taller_id) %>
   </div>
@@ -48,7 +48,7 @@
     <div class="col-lg-offset-2 col-lg-10">
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                chofers_path, :class => 'btn btn-default' %>
+                choferes_path, :class => 'btn btn-default' %>
     </div>
   </div>
 
