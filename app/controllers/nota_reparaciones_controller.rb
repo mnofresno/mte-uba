@@ -1,4 +1,4 @@
-class NotasReparacionesController < ApplicationController
+class NotaReparacionesController < ApplicationController
   before_action :set_nota_reparacion, only: [:show, :edit, :update, :destroy]
 
   # GET /notas_reparaciones

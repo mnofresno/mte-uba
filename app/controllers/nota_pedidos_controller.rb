@@ -1,4 +1,4 @@
-class NotasPedidosController < ApplicationController
+class NotaPedidosController < ApplicationController
   before_action :set_nota_pedido, only: [:show, :edit, :update, :destroy]
 
   # GET /notas_pedidos
