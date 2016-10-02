@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: unidads
+# Table name: unidades
 #
 #  id              :integer          not null, primary key
 #  patente         :string
@@ -13,11 +13,11 @@
 #
 # Indexes
 #
-#  index_unidads_on_taller_id  (taller_id)
+#  index_unidades_on_taller_id  (taller_id)
 #
 # Foreign Keys
 #
-#  fk_rails_5507aeb95c  (taller_id => tallers.id)
+#  fk_rails_9f7ec4ef64  (taller_id => talleres.id)
 #
 
 class Unidad < ActiveRecord::Base

@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: direccions
+# Table name: direcciones
 #
 #  id                 :integer          not null, primary key
 #  calle              :string
@@ -12,7 +12,7 @@
 #
 # Indexes
 #
-#  index_direccions_on_direccionable_type_and_direccionable_id  (direccionable_type,direccionable_id)
+#  index_direcciones_on_direccionable_type_and_direccionable_id  (direccionable_type,direccionable_id)
 #
 
 class Direccion < ActiveRecord::Base

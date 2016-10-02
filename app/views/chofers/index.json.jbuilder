@@ -1,1 +1,0 @@
-json.array! @chofers, partial: 'chofers/chofer', as: :chofer

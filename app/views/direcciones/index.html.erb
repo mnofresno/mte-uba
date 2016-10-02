@@ -1,0 +1,42 @@
+<%- model_class = Direccion -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:calle) %></th>
+      <th><%= model_class.human_attribute_name(:altura) %></th>
+      <th><%= model_class.human_attribute_name(:direccionable_id) %></th>
+      <th><%= model_class.human_attribute_name(:direccionable_type) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @direcciones.each do |direccion| %>
+      <tr>
+        <td><%= link_to direccion.id, direccion_path(direccion) %></td>
+        <td><%= direccion.calle %></td>
+        <td><%= direccion.altura %></td>
+        <td><%= direccion.direccionable_id %></td>
+        <td><%= direccion.direccionable_type %></td>
+        <td><%=l direccion.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_direccion_path(direccion), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      direccion_path(direccion),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_direccion_path,
+            :class => 'btn btn-primary' %>

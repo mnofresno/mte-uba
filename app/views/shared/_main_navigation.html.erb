@@ -1,12 +1,11 @@
 <%= navigation(:id => "main-navigation") do |menu| %>
   <%# if current_user.can_operated_engine?(:MteUba) %>
 
-    <% menu.item(Unidad.model_name.human.pluralize, unidads_path, :active => controller.controller_name.include?('unidads')) %>
-    <% menu.item(Proveedor.model_name.human.pluralize, proveedors_path, :active => controller.controller_name.include?('proveedors')) %>
-    <% menu.item('Nota Pedido', root_path, :active => controller.controller_name.include?('unidads')) %>
-    <% menu.item('Nota Reparacion', root_path, :active => controller.controller_name.include?('unidads')) %>
-    <%# menu.item(NotaPedido.model_name.human, notapedido_path, :active => controller.controller_name.include?('notapedio')) %>
-    <%# menu.item(NotaReparacion.model_name.human.pluralize, notareparacion_path, :active => controller.controller_name.include?('notareparacion')) %>
+    <% menu.item(Unidad.model_name.human.pluralize, unidades_path, :active => controller.controller_name.include?('unidades')) %>
+    <% menu.item(Proveedor.model_name.human.pluralize, proveedores_path, :active => controller.controller_name.include?('proveedores')) %>
+    <% menu.item('Nota Pedido', nota_pedidos_path, :active => controller.controller_name.include?('nota_pedidos')) %>
+    <% menu.item('Nota Reparacion', nota_reparaciones_path, :active => controller.controller_name.include?('nota_reparaciones')) %>
+    <% menu.item(Chofer.model_name.human.pluralize, choferes_path, :active => controller.controller_name.include?('choferes')) %>
   <%# end %>
 
 <% end %>

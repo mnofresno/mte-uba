@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: nota_pedidos
+# Table name: notas_pedidos
 #
 #  id          :integer          not null, primary key
 #  numeroserie :string
@@ -13,4 +13,5 @@ class NotaPedido < ActiveRecord::Base
   has_many :detalles, as: :detallable, class_name:"Detalle", dependent: :destroy
   has_one :solicitante, class_name:"Usuario"
   has_one :autorizante, class_name:"Usuario"
+  self.table_name = "notas_pedidos"
 end

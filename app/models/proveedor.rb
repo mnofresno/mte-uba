@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: proveedors
+# Table name: proveedores
 #
 #  id         :integer          not null, primary key
 #  nombre     :string
@@ -10,11 +10,11 @@
 #
 # Indexes
 #
-#  index_proveedors_on_taller_id  (taller_id)
+#  index_proveedores_on_taller_id  (taller_id)
 #
 # Foreign Keys
 #
-#  fk_rails_9faad6d824  (taller_id => tallers.id)
+#  fk_rails_85af39fcb4  (taller_id => talleres.id)
 #
 
 class Proveedor < ActiveRecord::Base

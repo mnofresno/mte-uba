@@ -2,13 +2,13 @@ require 'test_helper'
 
 class TallersControllerTest < ActionController::TestCase
   setup do
-    @taller = tallers(:one)
+    @taller = talleres(:one)
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:tallers)
+    assert_not_nil assigns(:talleres)
   end
 
   test "should get new" do
@@ -44,6 +44,6 @@ class TallersControllerTest < ActionController::TestCase
       delete :destroy, id: @taller
     end
 
-    assert_redirected_to tallers_path
+    assert_redirected_to talleres_path
   end
 end
