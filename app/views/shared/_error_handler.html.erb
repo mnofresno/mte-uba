@@ -1,0 +1,19 @@
+<% if obj_errors.any? %>
+  <div class="alert-message error fade in block-message" data-alert="alert" id="error_explanation">
+    <div id="error_title" onclick="return ShowHideObject('error_content', 'error_explanation', null);" style="cursor:pointer; border-bottom:2px solid black; margin-right: 8px;">
+      <a>
+        <%= t('scaffold.errors.message') %>
+      </a>
+      <a class="close" href="#" onclick="return ShowHideObject('error_content', 'error_explanation', null, true);" title="Cerrar">&times;</a>
+    </div>
+    <span class="error_content">
+      <ul>
+        <% obj_errors.full_messages.each do |msg| %>
+          <li>
+            <%= "#{msg}" %>
+          </li>
+        <% end %>
+      </ul>
+    </span>
+  </div>
+<% end %>

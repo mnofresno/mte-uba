@@ -1,0 +1,23 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= 'Rol' %></th>
+      <th><%= 'Taller' %></th>
+      <th><%= 'Usuario' %></th>
+      <th><%= 'Current' %></th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @usuario.memberships.each do |mem| %>
+      <tr>
+        <td><%= mem.role.try(:name) %></td>
+        <td><%= mem.taller.try(:nombre)  %></td>
+        <td><%= mem.usuario.try(:nombre) %></td>
+        <td><%= mem.current %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

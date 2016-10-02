@@ -13,13 +13,12 @@ Rails.application.routes.draw do
   resource :setting, only: :show
   root to: 'dashboards#show'
 
+
+
   devise_for :usuarios, controllers: {
-        sessions: 'usuarios/sessions',
         confirmations: 'usuarios/confirmations',
-        passwords: 'usuarios/passwords',
-        omniauth: 'usuarios/omniauth',
-        unlocks: 'usuarios/unlocks',
-        registrations: 'usuarios/registrations'
+        registrations: 'usuarios/registrations',
+        #session: 'usuarios/sessions'
       } do
   get '/login' => 'usuarios/sessions#new', as: :login
   get '/logout' => 'usuarios/sessions#destroy', as: :logout
@@ -28,7 +27,11 @@ Rails.application.routes.draw do
   post '/usuarios/sign_up' => 'usuarios/registrations#create', as: :usuario_registration
 
   end
-
+  resources :usuarios do
+    #, only: [:index, :new, :create, :destroy, :edit, :update]
+    get 'resend_invitation', action: :resend_invitation, controller: 'usuarios'
+    get 'active_deactive', action: :active_deactive, controller: 'usuarios'
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

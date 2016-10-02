@@ -1,0 +1,29 @@
+<hr class='clear' />
+<h2 class='items-title'>Memberships del Usuario</h2>
+
+<%= f.inputs do %>
+  <table width="100%" class='usuario_membership_items'>
+    <thead>
+      <tr>
+        <th width="8%">Rol</th>
+        <th width="18%">Current</th>
+        <th width="10%"></th>
+      </tr>
+    </thead>
+    <tbody class="memberships">
+      <%= f.semantic_fields_for :memberships do |fd|%>
+        <%= render 'membership_fields', :f => fd %>
+      <% end %>
+    </tbody>
+  </table>
+
+<hr class="clear">
+<div class="links">
+  <%= link_to_add_association 'Agregar Memberships', f,
+    :memberships,
+    'data-association-insertion-method' => :append,
+    'data-association-insertion-node' => '.memberships',
+    :class => 'global_button button'%>
+</div>
+
+<% end %>

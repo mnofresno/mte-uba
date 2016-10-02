@@ -47,7 +47,7 @@ class Usuario < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable
 
-  has_many :memberships, -> { includes [:taller, :role]}, class_name:"Membership", after_remove: :check_relations_with_talleres
+  has_many :memberships, -> { includes [:taller, :role]}, class_name:"Membership", dependent: :destroy
   has_many :talleres, through: :memberships, class_name:"Taller"
 
   has_one :taller, foreign_key: :owner_id
@@ -55,14 +55,20 @@ class Usuario < ActiveRecord::Base
   validates_presence_of :nombre, :apellido, :email
 
   accepts_nested_attributes_for :taller
+  accepts_nested_attributes_for :memberships
 
 
-  def check_relations_with_talleres
-    destroy if memberships.empty?
+  def full_name
+    "#{self.apellido}, #{self.nombre}"
   end
+
 
   def current_taller
     memberships.where(current:true).first.taller
+  end
+
+  def full_role
+    memberships.first.role.try(:name)
   end
 
   def nombre_completo

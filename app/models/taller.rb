@@ -14,11 +14,11 @@
 #
 
 class Taller < ActiveRecord::Base
-  has_many :direcciones, as: :direccionable, class_name:"Direccion", dependent: :destroy
+  has_many :lugares, as: :direccionable, class_name:"Direccion", dependent: :destroy
   has_many :memberships, class_name: "Membership"
   has_many :usuarios, through: :memberships, class_name:"Usuario"
 
-  accepts_nested_attributes_for :direcciones, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :lugares, reject_if: :all_blank, allow_destroy: true
 
   has_many :choferes, foreign_key:'taller_id', class_name:"Chofer"
   has_many :unidades, foreign_key:'taller_id', class_name:"Unidad"
@@ -43,6 +43,14 @@ class Taller < ActiveRecord::Base
     nombre.capitalize
   end
 
+  def add_usuario(usuario)
+    self.memberships << Membership.new(role_id: Role.operador.id, usuario: usuario, current: true)
+  end
+
+  def remove_usuario(usuario)
+    self.usuarios.delete(usuario)
+  end
+
   private
 
   # Set all the engines as default
@@ -54,5 +62,12 @@ class Taller < ActiveRecord::Base
   # Generate membership inner created company and the owner user (as Admin)
   def generate_membership
     Membership.create(taller_id: id, role_id: Role.propietario.id, usuario_id: owner_id, current: true)
+    Role.administrador
+    Role.operador
+    Role.propietario
   end
+
+
+
+
 end

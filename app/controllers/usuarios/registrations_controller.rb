@@ -2,30 +2,52 @@ class Usuarios::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
 
+  skip_before_filter :require_no_authentication, only: [:new, :create]
+
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+   #def new
+   #  super
+   #end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+   def create
+     super
+
+    if new_usuario_params[:password].blank?
+      new_usuario_params.delete(:password)
+      new_usuario_params.delete(:password_confirmation)
+    end
+
+    @usuario = Usuario.invite!(new_usuario_params,current_usuario)
+
+    current_taller.add_usuario(@usuario)
+
+
+    respond_to do |format|
+      if @usuario.valid?
+        format.html { usuarios_path  }
+        format.json { render :show, status: :created, location: @usuario }
+      else
+        format.html { render :new }
+        format.json { render json: @usuario.errors, status: :unprocessable_entity }
+      end
+    end
+   end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+   #def edit
+   #  super
+   #end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+   #def update
+   #  super
+   #end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+   #def destroy
+   #  super
+   #end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
@@ -69,13 +91,25 @@ class Usuarios::RegistrationsController < Devise::RegistrationsController
     super
   end
 
-  def after_sign_up_path_for(resource)
-    redirect_to new_usuario_session_path
-  end
+  #def after_sign_up_path_for(resource)
+  #  redirect_to new_usuario_session_path
+  #end
 
   def after_inactive_sign_up_path_for(resource)
     #logger.debug("after_inactive_sign_up_path_for")
     new_usuario_session_path
   end
+
+  private
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def new_usuario_params
+      params.require(:usuario).permit(:nombre, :apellido, :email)
+    end
+
+    protected
+    def needs_password?(usuario, params)
+    params[:password].present?
+    end
 
 end

@@ -1,7 +1,7 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(user)
+  def initialize(usuario)
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)
@@ -31,19 +31,22 @@ class Ability
     #
     #
     # TODO guest user (not logged in)
-    user ||= User.first # User.new
+    usuario ||= Usuario.first # User.new
 
-    cannot :manage, Taller
-    cannot :manage, :usuario
+    #cannot :manage, Taller
+    #cannot :manage, :usuario
     can :manage, Chofer
     can :manage, Proveedor
     can :manage, Unidad
     can :manage, Direccion
+    can :edit, Direccion
+
 
     #current_taller = user.current_taller
 
-    if user == user.propietario? || user.admin?
-      # owner
+    if usuario.propietario? || usuario.admin?
+      # owne
+      can :manage, :all
       can :manage, Taller
       can :manage, Membership
       can :manage, Role

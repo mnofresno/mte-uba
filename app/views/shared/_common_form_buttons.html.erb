@@ -1,0 +1,10 @@
+<div class="form-group">
+  <div class="col-lg-offset-2 col-lg-10">
+    <%= button_tag(:class => "button submit", 'data-disable-with' => "Procesando...") do
+      content_tag(:i, "Guardar" , :class => "fa fa-check fa-lg")
+    end %>
+    <%= button_tag(:class => "button reset") do
+      content_tag(:i, "Limpiar" , :class => "fa fa-eraser fa-lg")
+    end %>
+  </div>
+</div>

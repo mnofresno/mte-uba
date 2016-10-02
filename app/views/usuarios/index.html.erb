@@ -5,20 +5,20 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:nombre) %></th>
-      <th><%= model_class.human_attribute_name(:apellido) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:confirmed_at) %></th>
+      <th><%= model_class.human_attribute_name(:invitation_sent_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @usuarios.each do |usuario| %>
       <tr>
-        <td><%= link_to usuario.id, usuario_path(usuario) %></td>
-        <td><%= usuario.nombre %></td>
-        <td><%= usuario.apellido %></td>
-        <td><%=l usuario.created_at %></td>
+        <td><%= link_to usuario.full_name, usuario_path(usuario) %></td>
+        <td><%= usuario.email %></td>
+        <td><%= usuario.confirmed_at %></td>
+        <td><%= usuario.invitation_sent_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_usuario_path(usuario), :class => 'btn btn-default btn-xs' %>

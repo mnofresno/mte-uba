@@ -1,5 +1,8 @@
 class UsuariosController < AuthorizedController
+  check_authorization
+  authorize_resource class: false
   before_action :set_usuario, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :require_no_authentication, only: [:new, :create]
 
   # GET /usuarios
   # GET /usuarios.json
@@ -24,10 +27,12 @@ class UsuariosController < AuthorizedController
   # POST /usuarios
   # POST /usuarios.json
   def create
-    @usuario = Usuario.new(usuario_params)
+    @usuario = Usuario.invite!(usuario_params,current_usuario)
+
+    current_taller.add_usuario(@usuario)
 
     respond_to do |format|
-      if @usuario.save
+      if @usuario.valid?
         format.html { redirect_to @usuario, notice: 'Usuario was successfully created.' }
         format.json { render :show, status: :created, location: @usuario }
       else
@@ -37,6 +42,24 @@ class UsuariosController < AuthorizedController
     end
   end
 
+  def resend_invitation
+    @usuario = Usuario.find(params[:usuario_id])
+    Usuario.invite!({ email: "#{@usuario.email}" }, current_user)
+    redirect_to usuarios_path, notice: 'Invitación reenviada'
+  end
+
+  def active_deactive
+    @usuario = Usuario.find(params[:usuario_id])
+    @usuario.is_active = @usuario.is_active.blank?
+
+    if @usuario.save!
+      redirect_to usuarios_path, notice: 'Usuario Activado/Desactivado'
+    else
+      redirect_to usuarios_path, notice: 'Error al Activar/desactivar'
+    end
+  end
+
+
   # PATCH/PUT /usuarios/1
   # PATCH/PUT /usuarios/1.json
   def update
@@ -45,7 +68,7 @@ class UsuariosController < AuthorizedController
       usuario_params.delete(:password_confirmation)
     end
 
-    successfully_updated = if needs_password(@usuario, usuario_params)
+    successfully_updated = if needs_password?(@usuario, usuario_params)
                             @usuario.update(usuario_params)
                           else
                             @usuario.update_without_password(usuario_params)
@@ -66,6 +89,8 @@ class UsuariosController < AuthorizedController
   # DELETE /usuarios/1.json
   def destroy
     @usuario.destroy
+    current_taller.remove_usuario(@usuario)
+
     respond_to do |format|
       format.html { redirect_to usuarios_url, notice: 'Usuario was successfully destroyed.' }
       format.json { head :no_content }
@@ -80,7 +105,7 @@ class UsuariosController < AuthorizedController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def usuario_params
-      params.require(:usuario).permit(:nombre, :apellido, :email, :password, :password_confirmation, :name, :role_id,taller_attributes: [:nombre, direcciones_attributes:[ :calle, :altura]])
+      params.require(:usuario).permit(:nombre, :apellido, :email, :password, :password_confirmation, :name,taller_attributes: [:nombre, direcciones_attributes:[ :calle, :altura, :_destroy]], memberships_attributes: [:role_id,:current,:id, :_destroy])
     end
 
   protected

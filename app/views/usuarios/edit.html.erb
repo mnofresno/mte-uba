@@ -1,5 +1,25 @@
 <%- model_class = Usuario -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Editar %{model}'], :model => model_class.model_name.human.titleize %></h1>
 </div>
-<%= render :partial => 'form' %>
+
+<% content_for(:breadcrumbs) do %>
+    <%= breadcrumbs do |b|
+      b.item current_taller.nombre.titlecase, root_path
+      b.item Usuario.model_name.human, usuarios_path
+      b.item @usuario.full_name, usuario_path(@usuario)
+      b.item "Editando Usuario", usuario_path(@usuario), :active => true
+    end %>
+<%end%>
+
+<% content_for(:sidebar) do %>
+  <div class="block">
+      <div class="navigation">
+        <ul>
+          <li class="fa fa-eye fa-lg"><%= link_to( t('scaffold.actions.show', :item => ''), [@usuario] ) %></li>
+        </ul>
+      </div>
+  </div>
+<% end %>
+
+<%= render 'form' %>
