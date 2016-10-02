@@ -20,7 +20,7 @@ class Usuarios::RegistrationsController < Devise::RegistrationsController
 
     @usuario = Usuario.invite!(new_usuario_params,current_usuario)
 
-    current_taller.add_usuario(@usuario)
+    #current_taller.add_usuario(@usuario)
 
 
     respond_to do |format|
@@ -104,7 +104,7 @@ class Usuarios::RegistrationsController < Devise::RegistrationsController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def new_usuario_params
-      params.require(:usuario).permit(:nombre, :apellido, :email)
+      params.require(:usuario).permit(:nombre, :apellido, :email, :password, :password_confirmation, :name,taller_attributes: [:nombre, direcciones_attributes:[ :calle, :altura, :_destroy]], memberships_attributes: [:role_id,:taller_id,:current,:id, :_destroy,new_memberships:[:role_id,:taller_id,:current,:id,:_destroy ]])
     end
 
     protected
