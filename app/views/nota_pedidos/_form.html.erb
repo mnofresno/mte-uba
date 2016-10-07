@@ -1,25 +1,40 @@
-<%= form_for @nota_pedido, url: nota_pedidos_path do |f| %>
+<%= form_for @nota_pedido, url: nota_pedidos_path, :html => { :class => "form-horizontal nota_pedido" } do |f| %>
   <% if @nota_pedido.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@nota_pedido.errors.count, "error") %> prohibited this nota_pedido from being saved:</h2>
-
-      <ul>
-      <% @nota_pedido.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@nota_pedido.errors.count, "error") %> prohibited this nota_pedido from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @nota_pedido.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :numeroserie %><br>
-    <%= f.text_field :numeroserie %>
+  <div class="form-group">
+    <%= f.label :numeroserie, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :numeroserie, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:numeroserie) %>
   </div>
-  <div class="field">
-    <%= f.label :fecha %><br>
-    <%= f.date_select :fecha %>
+
+  <div class="form-group">
+    <%= f.label :fecha, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.date_select :fecha, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:fecha) %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                nota_pedidos_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>
