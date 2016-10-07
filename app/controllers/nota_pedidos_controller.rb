@@ -56,7 +56,7 @@ class NotaPedidosController < ApplicationController
   def destroy
     @nota_pedido.destroy
     respond_to do |format|
-      format.html { redirect_to notas_pedidos_url, notice: 'Nota pedido was successfully destroyed.' }
+      format.html { redirect_to nota_pedidos_url, notice: 'Nota pedido was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
