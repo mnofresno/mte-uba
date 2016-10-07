@@ -1,4 +1,4 @@
-<%= form_for(@nota_pedido) do |f| %>
+<%= form_for @nota_pedido, url: nota_pedidos_path do |f| %>
   <% if @nota_pedido.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@nota_pedido.errors.count, "error") %> prohibited this nota_pedido from being saved:</h2>
