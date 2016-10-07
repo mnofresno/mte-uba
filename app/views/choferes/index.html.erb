@@ -9,7 +9,6 @@
       <th><%= model_class.human_attribute_name(:apellido) %></th>
       <th><%= model_class.human_attribute_name(:radio) %></th>
       <th><%= model_class.human_attribute_name(:taller_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -20,7 +19,6 @@
         <td><%= chofer.apellido %></td>
         <td><%= chofer.radio %></td>
         <td><%= chofer.taller_nombre %></td>
-        <td><%=l chofer.created_at %></td>
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),
                       chofer, :class => 'btn btn-default btn-xs' %>
