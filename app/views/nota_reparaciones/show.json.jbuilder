@@ -1,1 +1,1 @@
-json.partial! "nota_reparacions/nota_reparacion", nota_reparacion: @nota_reparacion
+json.partial! "nota_reparaciones/nota_reparacion", nota_reparacion: @nota_reparacion

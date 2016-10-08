@@ -19,10 +19,10 @@
     </tr>
   </thead>
   <tbody>
-    <% @nota_pedido.detalles do |detalle| %>
+    <% @nota_pedido.detalles.each do |detalle| %>
       <tr>
         <td><%= detalle.cantidad %></td>
-        <td><%= detalle.descrip %></td>
+        <td><%= detalle.descripcion %></td>
       </tr>
     <% end %>
   </tbody>
