@@ -22,10 +22,11 @@
     </div>
     <%=f.error_span(:nombre) %>
   </div>
+
   <div class="form-group">
     <%= f.label :taller_id, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :taller_id, :class => 'form-control' %>
+      <%= f.select(:taller_id, Taller.all.collect {|u| [u.nombre, u.id]}, { :prompt => true }, {:class => "form-control"}) %>
     </div>
     <%=f.error_span(:taller_id) %>
   </div>

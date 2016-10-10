@@ -13,7 +13,7 @@
   <dt><strong><%= model_class.human_attribute_name(:fueraDeServicio) %>:</strong></dt>
   <dd><%= @unidad.fueraDeServicio %></dd>
   <dt><strong><%= model_class.human_attribute_name(:taller_id) %>:</strong></dt>
-  <dd><%= @unidad.taller_id %></dd>
+  <dd><%= Taller.find(@unidad.taller_id).nombre %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

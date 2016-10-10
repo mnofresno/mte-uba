@@ -36,14 +36,22 @@
     </div>
     <%=f.error_span(:año) %>
   </div>
+
   <div class="form-group">
     <%= f.label :fueraDeServicio, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
+    <div class="col-lg-1">
       <%= f.check_box :fueraDeServicio, :class => 'form-control' %>
     </div>
     <%=f.error_span(:fueraDeServicio) %>
   </div>
 
+  <div class="form-group">
+    <%= f.label :taller_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.select(:taller_id, Taller.all.collect {|u| [u.nombre, u.id]}, { :prompt => true }, {:class => "form-control"}) %>
+    </div>
+    <%=f.error_span(:taller_id) %>
+  </div>
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
