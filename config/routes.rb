@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   resources :detalles
   resources :nota_reparaciones
   resources :nota_pedidos
-  resources :unidades
+  resources :unidades do
+     resources :unidad_choferes, :path => 'choferes', controller: 'unidad_choferes'
+  end
   resources :proveedores
   resources :choferes
   resources :memberships
