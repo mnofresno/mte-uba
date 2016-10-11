@@ -17,7 +17,13 @@
 </dl>
 
 <div class="panel panel-default">
-    <div class="panel-heading">Choferes asignados</div>
+    <div style="min-height: 50px;" class="panel-heading">Choferes asignados
+        <div class="pull-right">
+            <%= link_to t('.new', :default => t("helpers.links.new")),
+            new_unidad_unidad_chofer_path(@unidad.id),
+            :class => 'btn btn-primary' %>
+        </div>
+    </div>
     <div class="panel-content">
     <center>
         </br>
@@ -42,10 +48,6 @@
           </tbody>
         </table>
         </center>
-        </br>
-        <%= link_to t('.new', :default => t("helpers.links.new")),
-            new_unidad_unidad_chofer_path(@unidad.id),
-            :class => 'btn btn-primary' %>
     </div>
 </div>
 
