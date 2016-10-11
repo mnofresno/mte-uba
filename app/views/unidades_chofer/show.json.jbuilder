@@ -1,1 +1,0 @@
-json.partial! "unidades_chofer/unidad_chofer", unidad_chofer: @unidad_chofer

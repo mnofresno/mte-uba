@@ -1,1 +1,0 @@
-json.partial! "chofereses_unidades/choferes_unidades", choferes_unidades: @choferes_unidades
