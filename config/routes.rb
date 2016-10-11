@@ -16,8 +16,6 @@ Rails.application.routes.draw do
   resource :setting, only: :show
   root to: 'dashboards#show'
 
-
-
   devise_for :usuarios, controllers: {
         confirmations: 'usuarios/confirmations',
         registrations: 'usuarios/registrations',

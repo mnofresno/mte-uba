@@ -38,6 +38,7 @@ class Ability
     can :manage, Chofer
     can :manage, Proveedor
     can :manage, Unidad
+    can :manage, UnidadChofer
     can :manage, Direccion
     can :edit, Direccion
 
