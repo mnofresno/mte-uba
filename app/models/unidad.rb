@@ -24,4 +24,8 @@ class Unidad < ActiveRecord::Base
   belongs_to :taller
   has_many :unidad_choferes
   has_many :choferes, through: :unidad_choferes
+  
+  def self.search(search)
+     where("patente ILIKE ?", "%#{search}%")
+  end
 end

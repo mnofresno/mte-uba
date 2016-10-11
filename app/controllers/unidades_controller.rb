@@ -5,6 +5,11 @@ class UnidadesController < AuthorizedController
   # GET /unidades.json
   def index
     @unidades = Unidad.all
+    if params[:search]
+       @unidades = Unidad.search(params[:search]).order('created_at DESC')
+    else
+       @unidades = Unidad.all.order('created_at DESC')
+    end
   end
 
   # GET /unidades/1
