@@ -28,4 +28,7 @@ class Unidad < ActiveRecord::Base
   def self.search(search)
      where("patente ILIKE ?", "%#{search}%")
   end
+  
+  
+   validates :taller, presence: true
 end

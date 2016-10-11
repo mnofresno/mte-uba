@@ -13,13 +13,14 @@ class UnidadChoferesController < AuthorizedController
   def create
      unidad = Unidad.find(params[:unidad_id])
      
-     @unidadChofer = unidad.unidad_choferes.create(unidad_chofer_params)
+     @unidad_chofer = unidad.unidad_choferes.create(unidad_chofer_params)
      
      respond_to do |format|
-        if @unidadChofer.save
+        if @unidad_chofer.save
            format.html { redirect_to([unidad], :notice => 'Chofer asignado correctamente.') }
         else
-           format.html { render :action => "new" }
+           format.html { render :new }
+           format.json { render json: @unidad_chofer.errors, status: :unprocessable_entity }
         end
      end
   end
