@@ -20,7 +20,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:patente) %></th>
       <th><%= model_class.human_attribute_name(:marca) %></th>
       <th><%= model_class.human_attribute_name(:año) %></th>
@@ -32,7 +31,6 @@
   <tbody>
     <% @unidades.each do |unidad| %>
       <tr>
-        <td><%= link_to unidad.id, unidad_path(unidad) %></td>
         <td><%= unidad.patente %></td>
         <td><%= unidad.marca %></td>
         <td><%= unidad.año %></td>
