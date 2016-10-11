@@ -17,40 +17,45 @@
     </br>
 <% end %>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:patente) %></th>
-      <th><%= model_class.human_attribute_name(:marca) %></th>
-      <th><%= model_class.human_attribute_name(:año) %></th>
-      <th><%= model_class.human_attribute_name(:fueraDeServicio) %></th>
-      <th><%= model_class.human_attribute_name(:taller_id) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @unidades.each do |unidad| %>
-      <tr>
-        <td><%= unidad.patente %></td>
-        <td><%= unidad.marca %></td>
-        <td><%= unidad.año %></td>
-        <td><%= unidad.fueraDeServicio %></td>
-        <td><%= Taller.find(unidad.taller_id).nombre %></td>
-        <td>
-          <%= link_to t('.show', :default => t("helpers.links.show")),
-                      unidad, :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_unidad_path(unidad), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      unidad_path(unidad),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-xs btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+<% if @unidades.present? %>  
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= model_class.human_attribute_name(:patente) %></th>
+          <th><%= model_class.human_attribute_name(:marca) %></th>
+          <th><%= model_class.human_attribute_name(:año) %></th>
+          <th><%= model_class.human_attribute_name(:fueraDeServicio) %></th>
+          <th><%= model_class.human_attribute_name(:taller_id) %></th>
+          <th><%=t '.actions', :default => t("helpers.actions") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @unidades.each do |unidad| %>
+          <tr>
+            <td><%= unidad.patente %></td>
+            <td><%= unidad.marca %></td>
+            <td><%= unidad.año %></td>
+            <td><%= unidad.fueraDeServicio %></td>
+            <td><%= Taller.find(unidad.taller_id).nombre %></td>
+            <td>
+              <%= link_to t('.show', :default => t("helpers.links.show")),
+                          unidad, :class => 'btn btn-default btn-xs' %>
+              <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                          edit_unidad_path(unidad), :class => 'btn btn-default btn-xs' %>
+              <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                          unidad_path(unidad),
+                          :method => :delete,
+                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                          :class => 'btn btn-xs btn-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+<% else %>
+  <p>No existen unidades cuya(s) patente(s) contenga(n): '<%= params[:search] %>'.</p>
+<% end %>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_unidad_path,
