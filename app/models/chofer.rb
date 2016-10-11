@@ -21,4 +21,6 @@
 
 class Chofer < ActiveRecord::Base
   belongs_to :taller, :class_name => Taller, :foreign_key => 'taller_id'
+  has_many :unidad_choferes
+  has_many :unidades, through: :unidad_choferes
 end

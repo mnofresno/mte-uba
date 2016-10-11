@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160928213829) do
+ActiveRecord::Schema.define(version: 20161010235234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,12 @@ ActiveRecord::Schema.define(version: 20160928213829) do
 
   add_index "talleres", ["owner_id"], name: "index_talleres_on_owner_id", using: :btree
 
+  create_table "turnos", force: :cascade do |t|
+    t.string   "descripcion"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "unidades", force: :cascade do |t|
     t.string   "patente"
     t.string   "marca"
@@ -111,6 +117,18 @@ ActiveRecord::Schema.define(version: 20160928213829) do
   end
 
   add_index "unidades", ["taller_id"], name: "index_unidades_on_taller_id", using: :btree
+
+  create_table "unidades_chofer", force: :cascade do |t|
+    t.integer  "unidad_id"
+    t.integer  "chofer_id"
+    t.integer  "turno_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "unidades_chofer", ["chofer_id"], name: "index_unidades_chofer_on_chofer_id", using: :btree
+  add_index "unidades_chofer", ["turno_id"], name: "index_unidades_chofer_on_turno_id", using: :btree
+  add_index "unidades_chofer", ["unidad_id"], name: "index_unidades_chofer_on_unidad_id", using: :btree
 
   create_table "usuarios", force: :cascade do |t|
     t.string   "nombre"
@@ -154,4 +172,7 @@ ActiveRecord::Schema.define(version: 20160928213829) do
   add_foreign_key "memberships", "usuarios"
   add_foreign_key "proveedores", "talleres"
   add_foreign_key "unidades", "talleres"
+  add_foreign_key "unidades_chofer", "choferes"
+  add_foreign_key "unidades_chofer", "turnos"
+  add_foreign_key "unidades_chofer", "unidades"
 end

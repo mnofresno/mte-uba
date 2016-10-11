@@ -22,6 +22,6 @@
 
 class Unidad < ActiveRecord::Base
   belongs_to :taller
-  #has_one :choferMañana, class_name:'Chofer'
-  #has_one :choferNoche, class_name:'Chofer'
+  has_many :unidad_choferes
+  has_many :choferes, through: :unidad_choferes
 end

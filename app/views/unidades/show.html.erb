@@ -16,6 +16,35 @@
   <dd><%= Taller.find(@unidad.taller_id).nombre %></dd>
 </dl>
 
+<div class="panel panel-default">
+    <div class="panel-heading">Choferes asignados</div>
+    <div class="panel-content">
+    <center>
+        </br>
+        <table class="table table-hover table-striped">
+          <thead>
+            <tr>
+              <th><%= model_class.human_attribute_name(:nombre) %></th>
+              <th><%= model_class.human_attribute_name(:apellido) %></th>
+              <th><%= model_class.human_attribute_name(:radio) %></th>
+              <th><%= model_class.human_attribute_name(:turno) %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @unidad.unidad_choferes.each do |unidadChofer| %>
+              <tr>
+                <td><%= unidadChofer.chofer.nombre %></td>
+                <td><%= unidadChofer.chofer.apellido %></td>
+                <td><%= unidadChofer.chofer.radio %></td>
+                <td><%= unidadChofer.turno.descripcion %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        </center>
+    </div>
+</div>
+
 <%= link_to t('.back', :default => t("helpers.links.back")),
               unidades_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),

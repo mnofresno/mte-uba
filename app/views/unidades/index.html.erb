@@ -24,6 +24,8 @@
         <td><%= unidad.fueraDeServicio %></td>
         <td><%= Taller.find(unidad.taller_id).nombre %></td>
         <td>
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                      unidad, :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_unidad_path(unidad), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

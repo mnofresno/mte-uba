@@ -1,0 +1,1 @@
+json.array! @chofereses_unidades, partial: 'chofereses_unidades/choferes_unidades', as: :choferes_unidades

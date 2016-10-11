@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Choferes Unidad</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Belongs to</th>
+      <th>Belongs to</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @choferes_unidad.each do |chofer_unidad| %>
+      <tr>
+        <td><%= chofer_unidad.belongs_to %></td>
+        <td><%= chofer_unidad.belongs_to %></td>
+        <td><%= link_to 'Show', chofer_unidad %></td>
+        <td><%= link_to 'Edit', edit_chofer_unidad_path(chofer_unidad) %></td>
+        <td><%= link_to 'Destroy', chofer_unidad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Chofer unidad', new_chofer_unidad_path %>
