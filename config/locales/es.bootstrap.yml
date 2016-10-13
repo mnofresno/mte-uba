@@ -1,0 +1,29 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+es:
+  breadcrumbs:
+    application:
+      root: "Index"
+    pages:
+      pages: "Pages"
+  helpers:
+    actions: "Acciones"
+    links:
+      back: "volver"
+      cancel: "Cancelar"
+      confirm: "Seguro?"
+      destroy: "Borrar"
+      new: "Nuevo"
+      edit: "Editar"
+      update: "Actualizar"
+      show: "Ver"
+    titles:
+      edit: "Editar"
+      save: "Guardar"
+      new: "Nuevo"
+      delete: "Borrar"
+    submit:
+      create: "Crear %{model}"
+      submit: "Guardar %{model}"
+      update: "Actualizar %{model}"
