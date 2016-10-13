@@ -1,0 +1,20 @@
+<% content_for(:filtros) do %>
+<div id="filters" class="accordion">
+  <h3><a href="#">Filtros</a></h3>
+  <div class="filters-content">
+
+  <%= search_form_for @search, :builder => Formtastic::FormBuilder, class: "formtastic search" do |f| %>
+     <%= f.inputs do %>
+        <%= f.input :nombre_cont, :label => "Nombre" %>
+        <%= f.input :apellido_cont, :label => "Apellido" %>
+        <%= f.input :radio_cont, :label => "Radio" %>
+     <% end %>
+     <%= f.actions do %>
+        <%= button_tag(:class => "button submit", 'data-disable-with' => "Buscando...", style: "float: center;") do
+          content_tag(:i, "Buscar" , :class => "fa fa-check fa-lg")
+        end %>
+     <% end %>
+  <% end %>
+  </div>
+</div>
+<%end%>

@@ -4,17 +4,30 @@ class ChoferesController < AuthorizedController
   # GET /choferes
   # GET /choferes.json
   def index
-    @choferes = Chofer.joins(:taller).select("choferes.*, talleres.nombre as taller_nombre")
+    @search = Chofer.by_taller(current_taller).search(params[:q])
+    @results = @search.result
+    @choferes = @results.paginate(page: params[:page], per_page: 15)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      #format.xml  { render xml: @unidades }
+      #format.json do
+      #  @unidades = Unidad.by_taller(current_taller).to_a
+      #  render json: @unidades
+      #end
+    end
+
   end
 
   # GET /choferes/1
   # GET /choferes/1.json
   def show
+    @turnos = @chofer.unidad_choferes.paginate(page: params[:page], per_page: 15)
   end
 
   # GET /choferes/new
   def new
-    @chofer = Chofer.new
+    @chofer = current_taller.choferes.build
   end
 
   # GET /choferes/1/edit
@@ -25,6 +38,7 @@ class ChoferesController < AuthorizedController
   # POST /choferes.json
   def create
     @chofer = Chofer.new(chofer_params)
+    @chofer.update(taller_id: current_taller.id)
 
     respond_to do |format|
       if @chofer.save
@@ -69,6 +83,6 @@ class ChoferesController < AuthorizedController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def chofer_params
-      params.require(:chofer).permit(:nombre, :apellido, :radio, :taller_id)
+      params.require(:chofer).permit(:nombre, :apellido, :radio)
     end
 end

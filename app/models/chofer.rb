@@ -25,6 +25,10 @@ class Chofer < ActiveRecord::Base
   has_many :unidades, through: :unidad_choferes
   has_many :turnos, through: :unidad_choferes
 
+  scope :by_taller, ->(taller) { where(taller_id: taller.id) }
+  validates :nombre, presence: true
+  validates :apellido, presence: true
+
   def turnos_unidad_string(unidad_turno)
     str = ""
     unidad_choferes.each do |uni|
@@ -33,5 +37,9 @@ class Chofer < ActiveRecord::Base
       end
     end
     str
+  end
+
+  def full_name
+    "#{self.apellido}, #{self.nombre}"
   end
 end
