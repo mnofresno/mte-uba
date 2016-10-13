@@ -24,7 +24,7 @@ es:
   activerecord:
     errors:
       messages:
-        prohibited: " impidieron guardar éste %{model}"
+        prohibited: " impidieron guardar éste/a %{model}"
         record_invalid: "La validación falló: %{errors}"
         restrict_dependent_destroy:
           has_one: No se puede eliminar el registro porque existe un %{record} dependiente
