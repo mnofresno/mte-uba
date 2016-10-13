@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
   layout :layout_by_resource
 
-  helper_method :current_taller
+  helper_method :current_taller, :model_class
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message
@@ -35,5 +35,9 @@ class ApplicationController < ActionController::Base
 
   def current_taller
     current_usuario.current_taller || current_usuario.talleres.first
+  end
+  
+  def model_class
+     @model_class = controller_path.classify.constantize
   end
 end
