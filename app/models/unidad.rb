@@ -24,11 +24,11 @@ class Unidad < ActiveRecord::Base
   belongs_to :taller
   has_many :unidad_choferes
   has_many :choferes, through: :unidad_choferes
-  
-  def self.search(search)
-     where("patente ILIKE ?", "%#{search}%")
-  end
-  
-  
-   validates :taller, presence: true
+
+  scope :by_taller, ->(taller) { where(taller_id: taller.id) }
+
+  validates :taller, presence: true
+  validates :patente, presence: true
+  validates :marca, presence: true
+  validates :año, presence: true
 end

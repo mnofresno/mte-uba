@@ -3,30 +3,29 @@
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
 
-<%= form_tag(unidades_path, :method => "get", id: "search-form") do %>
-    <div class="row">
-        <div class="col-lg-6">
-        <div class="input-group">
-            <%= text_field_tag :search, params[:search], placeholder: "Ingrese parte de la patente", :class => "form-control" %>
-            <span class="input-group-btn">
-                <%= submit_tag "Buscar", :class => "btn btn-secondary" %>
-            </span>
-        </div>
-        </div>
-    </div>
-    </br>
+<% content_for(:breadcrumbs) do %>
+  <%= breadcrumbs do |breadcrumb| %>
+    <% breadcrumb.item Unidad.model_name.human, unidades_path %>
+  <% end %>
+<% end %>
+<% if can?(:create, Unidad) %>
+  <%#= render 'sidebar_index' %>
+  <%= render 'filtros' %>
 <% end %>
 
 
-<% if @unidades.present? %>  
+
+<% if @unidades.any? %>
+  <div class="block-info">
+    <%= page_entries_info @unidades, entry_name: 'Unidad' %>
+  </div>
     <table class="table table-striped">
       <thead>
         <tr>
-          <th><%= model_class.human_attribute_name(:patente) %></th>
-          <th><%= model_class.human_attribute_name(:marca) %></th>
-          <th><%= model_class.human_attribute_name(:año) %></th>
-          <th><%= model_class.human_attribute_name(:fueraDeServicio) %></th>
-          <th><%= model_class.human_attribute_name(:taller_id) %></th>
+          <th><%= sort_link @search, :patente, model_class.human_attribute_name(:patente) %></th>
+          <th><%= sort_link @search, :marca, model_class.human_attribute_name(:marca) %></th>
+          <th><%= sort_link @search, :año, model_class.human_attribute_name(:año) %></th>
+          <th><%= sort_link @search, :fueraDeServicio, model_class.human_attribute_name(:fueraDeServicio) %></th>
           <th><%=t '.actions', :default => t("helpers.actions") %></th>
         </tr>
       </thead>
@@ -37,7 +36,6 @@
             <td><%= unidad.marca %></td>
             <td><%= unidad.año %></td>
             <td><%= unidad.fueraDeServicio %></td>
-            <td><%= Taller.find(unidad.taller_id).nombre %></td>
             <td>
               <%= link_to t('.show', :default => t("helpers.links.show")),
                           unidad, :class => 'btn btn-default btn-xs' %>
@@ -53,9 +51,11 @@
         <% end %>
       </tbody>
     </table>
-<% else %>
-  <p>No existen unidades cuya(s) patente(s) contenga(n): '<%= params[:search] %>'.</p>
+    <div class="block" style="margin:20px;">
+      <%= will_paginate @unidades %>
+    </div>
 <% end %>
+
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_unidad_path,

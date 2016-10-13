@@ -4,12 +4,19 @@ class UnidadesController < AuthorizedController
   # GET /unidades
   # GET /unidades.json
   def index
-    @unidades = Unidad.all
-    if params[:search]
-       @unidades = Unidad.search(params[:search]).order('created_at DESC')
-    else
-       @unidades = Unidad.all.order('created_at DESC')
+    @search = Unidad.by_taller(current_taller).search(params[:q])
+    @results = @search.result
+    @unidades = @results.paginate(page: params[:page], per_page: 15)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      #format.xml  { render xml: @unidades }
+      #format.json do
+      #  @unidades = Unidad.by_taller(current_taller).to_a
+      #  render json: @unidades
+      #end
     end
+
   end
 
   # GET /unidades/1

@@ -1,0 +1,14 @@
+<% content_for(:sidebar) do %>
+  <div class="block">
+    <div class="navigation">
+      <ul>
+        <li class="fa fa-plus-circle fa-lg">
+          <%= link_to t('.new', :default => t("helpers.links.new")),
+            new_unidad_path,
+            :class => 'btn btn-primary' %>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+<% end %>
