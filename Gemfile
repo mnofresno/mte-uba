@@ -71,7 +71,7 @@ gem 'devise'
 gem 'devise_invitable', '~> 1.5'
 #
 # parent-child
-gem 'cocoon'
+gem 'cocoon', '1.2.6'
 #
 gem 'cancancan', '~> 1.10'
 #
