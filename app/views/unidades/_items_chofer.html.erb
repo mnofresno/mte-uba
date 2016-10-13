@@ -2,22 +2,13 @@
 <h2 class='items-title'>Choferes</h2>
 
 <%= f.inputs do %>
-  <table width="100%" class='unidad_chofer_items'>
-    <thead>
-      <tr>
-        <th width="8%">Chofer</th>
-        <th width="18%">Turno</th>
-        <th width="10%"></th>
-      </tr>
-    </thead>
-    <tbody class="choferes">
-      <%= f.semantic_fields_for :unidad_choferes do |fd|%>
-        <%= render 'unidad_chofer_fields', :f => fd %>
+    <div class="choferes">
+      <%= f.semantic_fields_for :unidad_choferes do |fc| %>
+        <%= render partial: 'unidad_chofer_fields', locals: {f: fc} %>
       <% end %>
-    </tbody>
-  </table>
-<% end %>
+    </div>
 
+<% end %>
 <div class="links">
   <%= link_to_add_association 'Agregar Chofer', f,
     :unidad_choferes,
@@ -25,3 +16,4 @@
     'data-association-insertion-node' => '.choferes',
     :class => 'global_button button'%>
 </div>
+
