@@ -1,5 +1,5 @@
-<h2>Log in</h2>
-
+<h2><%= t("login_screen.logins") %></h2>
+</br>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
@@ -7,20 +7,21 @@
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.label t("login_screen.password") %><br />
+    <%= f.password_field  :password, autocomplete: "off" %>
   </div>
-
+    </br>
   <% if devise_mapping.rememberable? -%>
     <div class="field">
       <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <%= f.label t("login_screen.remember") %>
     </div>
   <% end -%>
-
+    </br>
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit t("login_screen.login"), :class => "btn btn-primary" %>
   </div>
 <% end %>
+</br>
 
 <%= render "usuarios/shared/links" %>

@@ -2,7 +2,7 @@
   <% if @unidad_chofer.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
       <div class="panel-heading">
-        <h3 class="panel-title"><%= pluralize(@unidad_chofer.errors.count, "error") %> prohibited this chofer from being saved:</h3>
+        <h3 class="panel-title"><%= validationMessage @unidad_chofer %></h3>
       </div>
       <div class="panel-body">
         <ul>

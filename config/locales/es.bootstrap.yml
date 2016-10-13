@@ -10,7 +10,7 @@ es:
   helpers:
     actions: "Acciones"
     links:
-      back: "volver"
+      back: "Volver"
       cancel: "Cancelar"
       confirm: "Seguro?"
       destroy: "Borrar"
