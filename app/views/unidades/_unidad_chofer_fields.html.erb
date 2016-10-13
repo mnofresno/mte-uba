@@ -1,10 +1,10 @@
 <tr class="nested-fields">
   <td>
-    <%= f.select :chofer_id, current_taller.choferes.map{ |c| [c.nombre, c.id] }, { include_blank: '-- elija el Chofer --' }, class: "chofer_select", id: 'chofer' %>
+    <%= f.select :chofer_id, current_taller.choferes.map{ |c| [c.full_name, c.id] }, { include_blank: '-- elija el Chofer --' }, class: "chofer_select" %>
   </td>
   <td>
     <%#= f.select :turno_id, current_taller.turnos.map{ |c| [c.descripcion, c.id] }, { include_blank: '-- elija el Turno --' }, class: "chofer_select", id: 'chofer' %>
-    <%= f.select :turno_id, Turno.all.map{ |c| [c.descripcion, c.id] }, { include_blank: '-- elija el Turno --' }, class: "turno_select", id: 'turno' %>
+    <%= f.select :turno_id, Turno.all.map{ |c| [c.descripcion, c.id] }, { include_blank: '-- elija el Turno --' }, class: "turno_select" %>
   </td>
   <td class="remove">
     <%= link_to_remove_association('' , f,html_options = { class: 'fa fa-trash-o fa-lg' }) %>
