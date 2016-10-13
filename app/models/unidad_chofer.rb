@@ -26,7 +26,7 @@ class UnidadChofer < ActiveRecord::Base
    belongs_to :unidad
    belongs_to :chofer
    belongs_to :turno
-   
+
    validates :chofer, presence: true
    validates :turno, presence: true
 end

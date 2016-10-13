@@ -9,4 +9,5 @@
 #
 
 class Turno < ActiveRecord::Base
+  belongs_to :unidad_choferes, :class_name => UnidadChofer, :foreign_key => 'turno_id'
 end

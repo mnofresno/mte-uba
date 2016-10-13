@@ -22,11 +22,12 @@ class UnidadesController < AuthorizedController
   # GET /unidades/1
   # GET /unidades/1.json
   def show
+    @choferes = @unidad.choferes.order('apellido desc').paginate(page: params[:page], per_page: 15)
   end
 
   # GET /unidades/new
   def new
-    @unidad = Unidad.new
+    @unidad = current_taller.unidades.build
   end
 
   # GET /unidades/1/edit
@@ -37,7 +38,7 @@ class UnidadesController < AuthorizedController
   # POST /unidades.json
   def create
     @unidad = Unidad.new(unidad_params)
-
+    @unidad.update(taller_id: current_taller.id)
     respond_to do |format|
       if @unidad.save
         format.html { redirect_to @unidad, notice: 'Unidad was successfully created.' }
@@ -81,6 +82,6 @@ class UnidadesController < AuthorizedController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def unidad_params
-      params.require(:unidad).permit(:patente, :marca, :año, :fueraDeServicio, :taller_id)
+      params.require(:unidad).permit(:patente, :marca, :año, :fueraDeServicio, :taller_id, unidad_choferes_attributes: [:chofer_id,:turno_id,:id, :_destroy,new_unidad_choferes:[:chofer_id,:turno_id,:id,:_destroy]])
     end
 end

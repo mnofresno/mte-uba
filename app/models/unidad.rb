@@ -22,8 +22,12 @@
 
 class Unidad < ActiveRecord::Base
   belongs_to :taller
-  has_many :unidad_choferes
-  has_many :choferes, through: :unidad_choferes
+  has_many :unidad_choferes, dependent: :destroy
+  has_many :choferes, through: :unidad_choferes, dependent: :destroy do
+    def turno_chofer
+      true
+    end
+  end
 
   scope :by_taller, ->(taller) { where(taller_id: taller.id) }
 
@@ -31,4 +35,6 @@ class Unidad < ActiveRecord::Base
   validates :patente, presence: true
   validates :marca, presence: true
   validates :año, presence: true
+
+  accepts_nested_attributes_for :unidad_choferes, reject_if: :all_blank, allow_destroy: true
 end

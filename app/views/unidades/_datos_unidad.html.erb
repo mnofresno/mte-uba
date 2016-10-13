@@ -1,0 +1,35 @@
+<table class="table">
+    <thead>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </thead>
+    <tbody>
+      <tr>
+        <th><strong><%= model_class.human_attribute_name(:patente) %>:</strong></th>
+        <td> <%= @unidad.patente %> </td>
+        <th><strong><%= model_class.human_attribute_name(:marca) %>:</strong></th>
+        <td><%= @unidad.marca %></td>
+      </tr>
+      <tr>
+        <th><strong><%= model_class.human_attribute_name(:año) %>:</strong></th>
+        <td><%= @unidad.año %></td>
+        <th><strong><%= model_class.human_attribute_name(:taller_id) %>:</strong></th>
+        <td><%= @unidad.fueraDeServicio %> </td>
+      </tr>
+</table>
+
+<!-- <dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:patente) %>:</strong></dt>
+  <dd><%= @unidad.patente %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:marca) %>:</strong></dt>
+  <dd><%= @unidad.marca %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:año) %>:</strong></dt>
+  <dd><%= @unidad.año %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:fueraDeServicio) %>:</strong></dt>
+  <dd><%= @unidad.fueraDeServicio %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:taller_id) %>:</strong></dt>
+  <dd><%= Taller.find(@unidad.taller_id).nombre %></dd>
+</dl>
+-->

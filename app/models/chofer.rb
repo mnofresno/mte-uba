@@ -23,4 +23,15 @@ class Chofer < ActiveRecord::Base
   belongs_to :taller, :class_name => Taller, :foreign_key => 'taller_id'
   has_many :unidad_choferes
   has_many :unidades, through: :unidad_choferes
+  has_many :turnos, through: :unidad_choferes
+
+  def turnos_unidad_string(unidad_turno)
+    str = ""
+    unidad_choferes.each do |uni|
+      if uni.unidad = unidad_turno
+        str += "#{uni.turno.descripcion}; "
+      end
+    end
+    str
+  end
 end
