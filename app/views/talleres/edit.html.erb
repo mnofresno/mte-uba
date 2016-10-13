@@ -1,5 +1,23 @@
-<%- model_class = Taller -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
-</div>
-<%= render :partial => 'form' %>
+<% content_for(:title) do %>
+  <%= @taller.nombre.titlecase %>
+<% end %>
+
+<% content_for(:sidebar) do %>
+  <div class="block">
+    <div class="navigation">
+      <ul>
+        <li class="fa fa-eye fa-lg">
+          <%= link_to( "Mostrar", taller_path(@taller) ) %>
+        </li>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+<% content_for(:breadcrumbs) do %>
+  <%= breadcrumbs do |breadcrumb| %>
+    <% breadcrumb.item "Configuracion", setting_path %>
+    <% breadcrumb.item @taller.nombre, my_taller_path %>
+  <% end %>
+<% end %>
+<%= render 'form' %>

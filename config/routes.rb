@@ -31,6 +31,11 @@ Rails.application.routes.draw do
     get 'resend_invitation', action: :resend_invitation, controller: 'usuarios'
     get 'active_deactive', action: :active_deactive, controller: 'usuarios'
   end
+
+  get 'my_taller', to: 'talleres#edit'
+  # patch 'my_company', to: 'companies#update', as: :update_company
+  put 'my_taller', to: 'talleres#update', as: :update_taller
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
