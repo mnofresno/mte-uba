@@ -1,27 +1,45 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Turnos</h1>
+<% content_for(:breadcrumbs) do %>
+  <%= breadcrumbs do |breadcrumb| %>
+    <% breadcrumb.item Turno.model_name.human, turnos_path %>
+  <% end %>
+<% end %>
+<% if can?(:create, Turno) %>
+  <%#= render 'sidebar_index' %>
+  <%= render 'filtros' %>
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Descripcion</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @turnos.each do |turno| %>
+<% if @turnos.any? %>
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= turno.descripcion %></td>
-        <td><%= link_to 'Show', turno %></td>
-        <td><%= link_to 'Edit', edit_turno_path(turno) %></td>
-        <td><%= link_to 'Destroy', turno, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th><%= sort_link @search, :descripcion, model_class.human_attribute_name(:descripcion) %></th>
+        <th><%=t '.actions', :default => t("helpers.actions") %></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @turnos.each do |turno| %>
+        <tr>
+          <td><%= link_to turno.descripcion, turno_path(turno) %></td>
+          <td>
+            <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                        edit_turno_path(turno), :class => 'btn btn-default btn-xs' %>
+            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                        turno_path(turno),
+                        :method => :delete,
+                        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                        :class => 'btn btn-xs btn-danger' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="block" style="margin:20px;">
+    <%= will_paginate @turnos %>
+  </div>
+<% end %>
 
-<br>
 
-<%= link_to 'New Turno', new_turno_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_turno_path,
+            :class => 'btn btn-primary' %>

@@ -1,21 +1,19 @@
-<%= form_for(@turno) do |f| %>
-  <% if @turno.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@turno.errors.count, "error") %> prohibited this turno from being saved:</h2>
+<%= semantic_form_for @turno, :html => { :class => "form-horizontal unidad" } do |f| %>
+  <%#= f.semantic_errors %>
+  <%= render 'shared/error_handler', :obj_errors => @turno.errors %>
 
-      <ul>
-      <% @turno.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+  <%#= render('shared/common_form_buttons') %>
+
+  <%= f.inputs(:class => :column_left ) do %>
+    <%= f.input :descripcion, :input_html => { :class => 'form-control' } %>
   <% end %>
 
-  <div class="field">
-    <%= f.label :descripcion %><br>
-    <%= f.text_field :descripcion %>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                turnos_path, :class => 'btn btn-default' %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
 <% end %>

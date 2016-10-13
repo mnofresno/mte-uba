@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161010235234) do
+ActiveRecord::Schema.define(version: 20161013061437) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,7 +104,10 @@ ActiveRecord::Schema.define(version: 20161010235234) do
     t.string   "descripcion"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "taller_id"
   end
+
+  add_index "turnos", ["taller_id"], name: "index_turnos_on_taller_id", using: :btree
 
   create_table "unidades", force: :cascade do |t|
     t.string   "patente"
@@ -171,6 +174,7 @@ ActiveRecord::Schema.define(version: 20161010235234) do
   add_foreign_key "memberships", "talleres"
   add_foreign_key "memberships", "usuarios"
   add_foreign_key "proveedores", "talleres"
+  add_foreign_key "turnos", "talleres"
   add_foreign_key "unidades", "talleres"
   add_foreign_key "unidades_chofer", "choferes"
   add_foreign_key "unidades_chofer", "turnos"

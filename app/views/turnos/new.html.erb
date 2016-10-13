@@ -1,5 +1,9 @@
-<h1>New Turno</h1>
+<% content_for(:breadcrumbs) do %>
+  <%= breadcrumbs do |b|
+    b.item Turno.model_name.human, turnos_path
+    b.item "Nuevo Turno", root_path, :active => true
+  end %>
+<%end%>
+
 
 <%= render 'form' %>
-
-<%= link_to 'Back', turnos_path %>
