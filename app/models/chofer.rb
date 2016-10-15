@@ -32,7 +32,7 @@ class Chofer < ActiveRecord::Base
   def turnos_unidad_string(unidad_turno)
     str = ""
     unidad_choferes.each do |uni|
-      if uni.unidad = unidad_turno
+      if uni.unidad == unidad_turno
         str += "#{uni.turno.descripcion}; "
       end
     end

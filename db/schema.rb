@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161013061437) do
+ActiveRecord::Schema.define(version: 20161015012701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,6 +109,18 @@ ActiveRecord::Schema.define(version: 20161013061437) do
 
   add_index "turnos", ["taller_id"], name: "index_turnos_on_taller_id", using: :btree
 
+  create_table "unidad_choferes", force: :cascade do |t|
+    t.integer  "unidad_id"
+    t.integer  "chofer_id"
+    t.integer  "turno_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "unidad_choferes", ["chofer_id"], name: "index_unidad_choferes_on_chofer_id", using: :btree
+  add_index "unidad_choferes", ["turno_id"], name: "index_unidad_choferes_on_turno_id", using: :btree
+  add_index "unidad_choferes", ["unidad_id"], name: "index_unidad_choferes_on_unidad_id", using: :btree
+
   create_table "unidades", force: :cascade do |t|
     t.string   "patente"
     t.string   "marca"
@@ -120,18 +132,6 @@ ActiveRecord::Schema.define(version: 20161013061437) do
   end
 
   add_index "unidades", ["taller_id"], name: "index_unidades_on_taller_id", using: :btree
-
-  create_table "unidades_chofer", force: :cascade do |t|
-    t.integer  "unidad_id"
-    t.integer  "chofer_id"
-    t.integer  "turno_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "unidades_chofer", ["chofer_id"], name: "index_unidades_chofer_on_chofer_id", using: :btree
-  add_index "unidades_chofer", ["turno_id"], name: "index_unidades_chofer_on_turno_id", using: :btree
-  add_index "unidades_chofer", ["unidad_id"], name: "index_unidades_chofer_on_unidad_id", using: :btree
 
   create_table "usuarios", force: :cascade do |t|
     t.string   "nombre"
@@ -170,13 +170,13 @@ ActiveRecord::Schema.define(version: 20161013061437) do
   add_index "usuarios", ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "choferes", "talleres"
-  add_foreign_key "memberships", "roles"
+  add_foreign_key "memberships", "roles", column: "role_id"
   add_foreign_key "memberships", "talleres"
   add_foreign_key "memberships", "usuarios"
   add_foreign_key "proveedores", "talleres"
   add_foreign_key "turnos", "talleres"
+  add_foreign_key "unidad_choferes", "choferes"
+  add_foreign_key "unidad_choferes", "turnos"
+  add_foreign_key "unidad_choferes", "unidades"
   add_foreign_key "unidades", "talleres"
-  add_foreign_key "unidades_chofer", "choferes"
-  add_foreign_key "unidades_chofer", "turnos"
-  add_foreign_key "unidades_chofer", "unidades"
 end

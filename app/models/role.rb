@@ -11,8 +11,8 @@
 class Role < ActiveRecord::Base
   has_many :memberships, class_name:"Membership"
 
-  has_many :talleres, through: :memberships, class_name:"Taller"
-  has_many :usuarios, through: :memberships, class_name:"Usuario"
+  has_many :talleres, -> { uniq }, through: :memberships, class_name:"Taller"
+  has_many :usuarios, -> { uniq }, through: :memberships, class_name:"Usuario"
 
   class << self
     ADMIN_NAME = 'administrador'

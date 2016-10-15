@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: unidades_chofer
+# Table name: unidad_choferes
 #
 #  id         :integer          not null, primary key
 #  unidad_id  :integer
@@ -11,9 +11,9 @@
 #
 # Indexes
 #
-#  index_unidades_chofer_on_chofer_id  (chofer_id)
-#  index_unidades_chofer_on_turno_id   (turno_id)
-#  index_unidades_chofer_on_unidad_id  (unidad_id)
+#  index_unidad_choferes_on_chofer_id  (chofer_id)
+#  index_unidad_choferes_on_turno_id   (turno_id)
+#  index_unidad_choferes_on_unidad_id  (unidad_id)
 #
 # Foreign Keys
 #
