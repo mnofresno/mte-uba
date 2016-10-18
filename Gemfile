@@ -80,9 +80,3 @@ gem 'font-awesome-rails'
 gem 'formtastic'
 
 gem 'attrtastic'
-
-gem 'ransack', github: 'activerecord-hackery/ransack'
-
-gem 'will_paginate', '~> 3.1.0'
-
-#gem 'kaminari'

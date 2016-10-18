@@ -32,7 +32,7 @@ module MteUba
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
-    config.i18n.default_locale = :'es'
+    config.i18n.default_locale = :'en'
 
     # UPGRADE Rails 4.0.0 Authenticity Tokens for Remote Forms can be set case by case (form_for @obj, remote: true, authenticity_token: true)
     config.action_view.embed_authenticity_token_in_remote_forms = true
