@@ -24,7 +24,7 @@ es:
   activerecord:
     errors:
       messages:
-        prohibited: " impidieron guardar éste %{model}"
+        prohibited: " impidieron guardar éste/a %{model}"
         record_invalid: "La validación falló: %{errors}"
         restrict_dependent_destroy:
           has_one: No se puede eliminar el registro porque existe un %{record} dependiente
@@ -234,3 +234,14 @@ es:
       long: "%d de %B de %Y %H:%M"
       short: "%d de %b %H:%M"
     pm: pm
+  login_screen:
+    signup:   "Crear una nueva cuenta de usuario"
+    forgot:   "¿Olvidó su contraseña?"
+    didntc:   "¿No recibió el email de confirmación?"
+    didntu:   "¿No recibió los datos para desbloquear su usuario?"
+    login:    "Ingresar"
+    remember: "Recordar mi clave"
+    password: "Clave"
+    logins:   "Ingreso al sistema"
+    
+    
