@@ -1,19 +1,14 @@
-<% content_for(:breadcrumbs) do %>
-  <%= breadcrumbs do |breadcrumb| %>
-    <% breadcrumb.item Chofer.model_name.human, choferes_path %>
-  <% end %>
-<% end %>
-<% if can?(:create, Chofer) %>
-  <%#= render 'sidebar_index' %>
-  <%= render 'filtros' %>
-<% end %>
-<% if @choferes.any? %>
+<%- model_class = Chofer -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= sort_link @search, :nombre, model_class.human_attribute_name(:nombre) %></th>
-      <th><%= sort_link @search, :apellido, model_class.human_attribute_name(:apellido) %></th>
-      <th><%= sort_link @search, :radio, model_class.human_attribute_name(:radio) %></th>
+      <th><%= model_class.human_attribute_name(:nombre) %></th>
+      <th><%= model_class.human_attribute_name(:apellido) %></th>
+      <th><%= model_class.human_attribute_name(:radio) %></th>
+      <th><%= model_class.human_attribute_name(:taller_id) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -23,6 +18,7 @@
         <td><%= chofer.nombre %></td>
         <td><%= chofer.apellido %></td>
         <td><%= chofer.radio %></td>
+        <td><%= chofer.taller_nombre %></td>
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),
                       chofer, :class => 'btn btn-default btn-xs' %>
@@ -38,11 +34,6 @@
     <% end %>
   </tbody>
 </table>
-<div class="block" style="margin:20px;">
-      <%= will_paginate @choferes %>
-    </div>
-<% end %>
-
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_chofer_path,

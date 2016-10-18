@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   resources :detalles
   resources :nota_reparaciones
   resources :nota_pedidos
-  resources :unidades
+  resources :unidades do
+     resources :unidad_choferes, :path => 'choferes', controller: 'unidad_choferes'
+  end
   resources :proveedores
   resources :choferes
   resources :memberships
@@ -31,11 +33,6 @@ Rails.application.routes.draw do
     get 'resend_invitation', action: :resend_invitation, controller: 'usuarios'
     get 'active_deactive', action: :active_deactive, controller: 'usuarios'
   end
-
-  get 'my_taller', to: 'talleres#edit'
-  # patch 'my_company', to: 'companies#update', as: :update_company
-  put 'my_taller', to: 'talleres#update', as: :update_taller
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

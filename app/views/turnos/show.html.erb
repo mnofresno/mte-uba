@@ -1,25 +1,9 @@
-<%- model_class = Turno -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
-</div>
-<% content_for(:breadcrumbs) do %>
-  <%= breadcrumbs do |b|
-    b.item Turno.model_name.human, turnos_path
-    b.item @turno.descripcion, root_path, :active => true
-  end %>
-<%end%>
+<p id="notice"><%= notice %></p>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:descripcion) %>:</strong></dt>
-  <dd><%= @turno.descripcion %></dd>
-</dl>
+<p>
+  <strong>Descripcion:</strong>
+  <%= @turno.descripcion %>
+</p>
 
-<%= link_to t('.back', :default => t("helpers.links.back")),
-              turnos_path, :class => 'btn btn-default'  %>
-<%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_turno_path(@turno), :class => 'btn btn-default' %>
-<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              turno_path(@turno),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+<%= link_to 'Edit', edit_turno_path(@turno) %> |
+<%= link_to 'Back', turnos_path %>

@@ -22,7 +22,6 @@ class Taller < ActiveRecord::Base
 
   has_many :choferes, foreign_key:'taller_id', class_name:"Chofer"
   has_many :unidades, foreign_key:'taller_id', class_name:"Unidad"
-  has_many :turnos, foreign_key:'taller_id', class_name:"Turno"
   has_many :proveedores, foreign_key:'taller_id', class_name:"Proveedor"
   belongs_to :owner, class_name: 'Usuario'
 

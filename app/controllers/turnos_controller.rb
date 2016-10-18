@@ -4,19 +4,7 @@ class TurnosController < ApplicationController
   # GET /turnos
   # GET /turnos.json
   def index
-    @search = Turno.by_taller(current_taller).search(params[:q])
-    @results = @search.result
-    @turnos = @results.paginate(page: params[:page], per_page: 15)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      #format.xml  { render xml: @unidades }
-      #format.json do
-      #  @unidades = Unidad.by_taller(current_taller).to_a
-      #  render json: @unidades
-      #end
-    end
-
+    @turnos = Turno.all
   end
 
   # GET /turnos/1
@@ -26,7 +14,7 @@ class TurnosController < ApplicationController
 
   # GET /turnos/new
   def new
-    @turno = current_taller.turnos.build
+    @turno = Turno.new
   end
 
   # GET /turnos/1/edit
@@ -37,7 +25,6 @@ class TurnosController < ApplicationController
   # POST /turnos.json
   def create
     @turno = Turno.new(turno_params)
-    @turno.update(taller_id: current_taller.id)
 
     respond_to do |format|
       if @turno.save

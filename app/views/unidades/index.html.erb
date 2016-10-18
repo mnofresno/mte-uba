@@ -1,3 +1,8 @@
+<%- model_class = Unidad -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+
 <% content_for(:breadcrumbs) do %>
   <%= breadcrumbs do |breadcrumb| %>
     <% breadcrumb.item Unidad.model_name.human, unidades_path %>

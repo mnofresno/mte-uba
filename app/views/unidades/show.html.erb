@@ -1,21 +1,55 @@
-<% content_for(:title, Unidad.model_name.human.titlecase) %>
+<%- model_class = Unidad -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<% content_for(:breadcrumbs) do %>
-  <%= breadcrumbs do |b|
-    b.item Unidad.model_name.human, unidades_path
-    b.item @unidad.patente, root_path, :active => true
-  end %>
-<%end%>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:patente) %>:</strong></dt>
+  <dd><%= @unidad.patente %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:marca) %>:</strong></dt>
+  <dd><%= @unidad.marca %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:año) %>:</strong></dt>
+  <dd><%= @unidad.año %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:fueraDeServicio) %>:</strong></dt>
+  <dd><%= @unidad.fueraDeServicio %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:taller_id) %>:</strong></dt>
+  <dd><%= Taller.find(@unidad.taller_id).nombre %></dd>
+</dl>
 
-<%= render 'sidebar' %>
-
-<%= render 'datos_unidad' %>
-
-<%= render 'choferes', :obj_to_show => @unidad  %>
-
-<%= render 'nota_pedido', :obj_to_show => @unidad %>
-
-<%= render 'nota_reparacion', :obj_to_show => @unidad %>
+<div class="panel panel-default">
+    <div style="min-height: 50px;" class="panel-heading">Choferes asignados
+        <div class="pull-right">
+            <%= link_to t('.new', :default => t("helpers.links.new")),
+            new_unidad_unidad_chofer_path(@unidad.id),
+            :class => 'btn btn-primary' %>
+        </div>
+    </div>
+    <div class="panel-content">
+    <center>
+        </br>
+        <table class="table table-hover table-striped">
+          <thead>
+            <tr>
+              <th><%= model_class.human_attribute_name(:nombre) %></th>
+              <th><%= model_class.human_attribute_name(:apellido) %></th>
+              <th><%= model_class.human_attribute_name(:radio) %></th>
+              <th><%= model_class.human_attribute_name(:turno) %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @unidad.unidad_choferes.each do |unidadChofer| %>
+              <tr>
+                <td><%= unidadChofer.chofer.nombre %></td>
+                <td><%= unidadChofer.chofer.apellido %></td>
+                <td><%= unidadChofer.chofer.radio %></td>
+                <td><%= unidadChofer.turno.descripcion %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        </center>
+    </div>
+</div>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               unidades_path, :class => 'btn btn-default'  %>

@@ -1,34 +1,8 @@
-<% content_for(:title, Chofer.model_name.human.titlecase) %>
+<%- model_class = Chofer -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<% content_for(:breadcrumbs) do %>
-  <%= breadcrumbs do |b|
-    b.item Chofer.model_name.human, choferes_path
-    b.item @chofer.full_name, root_path, :active => true
-  end %>
-<%end%>
-<table class="table">
-    <thead>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-    </thead>
-    <tbody>
-      <tr>
-        <th><strong><%= model_class.human_attribute_name(:nombre) %>:</strong></th>
-        <td><%= @chofer.nombre %> </td>
-        <th><strong><%= model_class.human_attribute_name(:apellido) %>:</strong></th>
-        <td><%= @chofer.apellido %></td>
-      </tr>
-      <tr>
-        <th><strong><%= model_class.human_attribute_name(:radio) %>:</strong></th>
-        <td><%= @chofer.radio %></td>
-        <th></th>
-        <td></td>
-      </tr>
-</table>
-
-<!--
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:nombre) %>:</strong></dt>
   <dd><%= @chofer.nombre %></dd>
@@ -39,9 +13,6 @@
   <dt><strong><%= model_class.human_attribute_name(:taller_id) %>:</strong></dt>
   <dd><%= @chofer.taller.nombre %></dd>
 </dl>
-
--->
-<%= render 'turnos', :obj_to_show => @chofer  %>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               choferes_path, :class => 'btn btn-default'  %>

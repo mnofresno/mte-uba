@@ -23,23 +23,4 @@ class Chofer < ActiveRecord::Base
   belongs_to :taller, :class_name => Taller, :foreign_key => 'taller_id'
   has_many :unidad_choferes
   has_many :unidades, through: :unidad_choferes
-  has_many :turnos, through: :unidad_choferes
-
-  scope :by_taller, ->(taller) { where(taller_id: taller.id) }
-  validates :nombre, presence: true
-  validates :apellido, presence: true
-
-  def turnos_unidad_string(unidad_turno)
-    str = ""
-    unidad_choferes.each do |uni|
-      if uni.unidad == unidad_turno
-        str += "#{uni.turno.descripcion}; "
-      end
-    end
-    str
-  end
-
-  def full_name
-    "#{self.apellido}, #{self.nombre}"
-  end
 end
